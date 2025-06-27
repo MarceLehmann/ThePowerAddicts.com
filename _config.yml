@@ -2,8 +2,8 @@ title: The Power Addicts
 email: info@thepoweraddicts.com
 description: >- # this means to ignore newlines until "baseurl:"
   Die Power Plattform Community für Workshops, Services und mehr.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://dein-github-username.github.io" # GitHub Pages URL anpassen
+baseurl: "ThePowerAddicts.com" # the subpath of your site, e.g. /blog
+url: "https://marcelehmann.github.io/" # GitHub Pages URL anpassen
 markdown: kramdown
 theme: minima
 plugins:
