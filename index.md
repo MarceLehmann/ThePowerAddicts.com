@@ -14,7 +14,7 @@ title: Home
 <section>
   <h2>Workshops</h2>
   <ul>
-    <li><a href="/workshops/">Become a PowerPlatform Admin in 4 weeks</a></li>
+    <li><a href="{{ site.baseurl }}/workshops/">Become a PowerPlatform Admin in 4 weeks</a></li>
     <li>Weitere spannende Workshops folgen!</li>
   </ul>
 </section>

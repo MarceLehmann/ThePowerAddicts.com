@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }} | {{ site.title }}</title>
   {% seo %}
-  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/main.css">
 </head>
 <body>
   <header>
     <nav>
       <ul>
         {% for item in site.nav %}
-        <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+        <li><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a></li>
         {% endfor %}
       </ul>
     </nav>
