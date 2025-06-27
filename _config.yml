@@ -10,6 +10,24 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
+# Include pages from _pages directory
+include:
+  - _pages
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:name/
+
+# Defaults for pages
+defaults:
+  - scope:
+      path: "_pages"
+      type: "pages"
+    values:
+      layout: "default"
+
 # Navigation
 nav:
   - title: Home
