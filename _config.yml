@@ -1,0 +1,26 @@
+title: The Power Addicts
+email: info@thepoweraddicts.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Die Power Plattform Community für Workshops, Services und mehr.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://dein-github-username.github.io" # GitHub Pages URL anpassen
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Navigation
+nav:
+  - title: Home
+    url: /
+  - title: About
+    url: /about/
+  - title: Services
+    url: /services/
+  - title: Workshops
+    url: /workshops/
+  - title: Newsletter
+    url: /newsletter/
+  - title: Affiliate/Partner
+    url: /affiliate/
