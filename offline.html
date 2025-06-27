@@ -1,0 +1,117 @@
+---
+layout: default
+title: "Offline - The Power Addicts"
+description: "Diese Seite ist offline nicht verfügbar. Bitte überprüfen Sie Ihre Internetverbindung."
+permalink: /offline.html
+sitemap: false
+---
+
+<div class="hero hero-sm">
+  <div class="container">
+    <div class="hero-content text-center">
+      <h1>📱 Offline</h1>
+      <p class="lead">Diese Seite ist momentan nicht verfügbar.</p>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="grid grid-1-1 gap-lg">
+      <div class="card text-center">
+        <div class="card-body">
+          <h2>🌐 Keine Internetverbindung</h2>
+          <p>Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.</p>
+          <button onclick="window.location.reload()" class="btn btn-primary">
+            🔄 Seite neu laden
+          </button>
+        </div>
+      </div>
+      
+      <div class="card text-center">
+        <div class="card-body">
+          <h2>📞 Kontakt</h2>
+          <p>Für dringende Anfragen erreichen Sie uns auch direkt:</p>
+          <div class="contact-info">
+            <p><strong>Email:</strong> info@thepoweraddicts.com</p>
+            <p><strong>LinkedIn:</strong> The Power Addicts</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center mt-lg">
+      <h3>📋 Verfügbare Seiten</h3>
+      <p>Diese Seiten könnten bereits in Ihrem Browser-Cache verfügbar sein:</p>
+      <div class="offline-nav">
+        <a href="/" class="btn btn-outline">🏠 Startseite</a>
+        <a href="/about/" class="btn btn-outline">👥 Über uns</a>
+        <a href="/services/" class="btn btn-outline">🔧 Services</a>
+        <a href="/workshops/" class="btn btn-outline">🎓 Workshops</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.offline-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.contact-info {
+  margin: 1rem 0;
+}
+
+.contact-info p {
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 768px) {
+  .offline-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .offline-nav .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+</style>
+
+<script>
+// Check if we're back online
+window.addEventListener('online', function() {
+  const banner = document.createElement('div');
+  banner.className = 'alert alert-success';
+  banner.innerHTML = '✅ Internetverbindung wiederhergestellt! <button onclick="window.location.reload()" class="btn btn-sm btn-success ml-sm">Seite neu laden</button>';
+  banner.style.position = 'fixed';
+  banner.style.top = '20px';
+  banner.style.left = '50%';
+  banner.style.transform = 'translateX(-50%)';
+  banner.style.zIndex = '9999';
+  banner.style.boxShadow = '0 4px 20px rgba(0,0,0,0.2)';
+  document.body.appendChild(banner);
+  
+  setTimeout(() => {
+    banner.remove();
+  }, 5000);
+});
+
+// Periodically check connection
+setInterval(() => {
+  if (navigator.onLine) {
+    fetch('/', { method: 'HEAD', cache: 'no-cache' })
+      .then(() => {
+        // Connection is working, could show reconnection message
+      })
+      .catch(() => {
+        // Still offline
+      });
+  }
+}, 30000);
+</script>

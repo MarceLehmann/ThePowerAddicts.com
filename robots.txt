@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Prioritize important pages
+Sitemap: https://marcelehmann.github.io/ThePowerAddicts.com/sitemap.xml
+
+# Block unnecessary crawling
+Disallow: /assets/js/
+Disallow: /assets/vendor/
+Disallow: /_*
+Disallow: /404.html
+
+# Google-specific optimizations
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Search result enhancement
+Host: https://marcelehmann.github.io/ThePowerAddicts.com

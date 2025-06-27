@@ -1,44 +1,163 @@
 title: The Power Addicts
 email: info@thepoweraddicts.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Die Power Plattform Community für Workshops, Services und mehr.
+  🚀 Microsoft Power Platform Experten Schweiz | #1 Workshops & Consulting für Power Apps, Power Automate, Power BI | Ihre digitale Transformation beginnt hier
 baseurl: "/ThePowerAddicts.com" # the subpath of your site, e.g. /blog
 url: "https://marcelehmann.github.io" # GitHub Pages URL anpassen
 markdown: kramdown
 theme: minima
+
+# Enhanced Jekyll Plugins for SEO & Performance
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jekyll-minifier
+  - jekyll-gzip
 
-# Include pages from _pages directory
+# SEO & Performance Optimization (Elite Level)
+google_analytics: # Add your GA4 tracking ID here
+google_site_verification: # Add your Google Search Console verification code
+bing_site_verification: # Add your Bing Webmaster verification code
+
+# Social Media & Schema.org (Premium SEO)
+author: 
+  name: Marcel Lehmann
+  email: info@thepoweraddicts.com
+  twitter: thepoweraddicts
+  linkedin: marcel-lehmann-powerplatform
+
+twitter:
+  username: thepoweraddicts
+  card: summary_large_image
+
+facebook:
+  app_id: # Add your Facebook App ID
+  publisher: # Add your Facebook Page ID
+
+social:
+  name: The Power Addicts
+  links:
+    - https://www.linkedin.com/company/thepoweraddicts
+    - https://github.com/marcelehmann
+    - https://twitter.com/thepoweraddicts
+
+# Elite SEO Configuration
+logo: /assets/images/logo.svg
+webmaster_verifications:
+  google: # Google Search Console verification token
+  bing: # Bing Webmaster verification token
+  yandex: # Yandex Webmaster verification token
+
+# Language & Locale (Enhanced)
+lang: de-CH
+locale: de_CH
+timezone: Europe/Zurich
+
+# Performance & Build (Optimized)
+incremental: true
+safe: true
+highlighter: rouge
+future: false
+unpublished: false
+gist:
+  noscript: false
+
+# Compression & Minification
+compress_html:
+  clippings: all
+  comments: ["<!--", "-->"]
+  endings: all
+  startings: [html, head, body]
+  blanklines: false
+  profile: false
+  ignore:
+    envs: [development]
+
+# Enhanced includes for Google optimization
 include:
   - _pages
+  - _headers
+  - robots.txt
+  - sitemap.xml
+  - feed.xml
+  - .htaccess
+  - _redirects
 
-# Collections
+# Collections (Enhanced)
 collections:
   pages:
     output: true
     permalink: /:name/
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
 
-# Defaults for pages
+# Defaults for pages with ELITE SEO optimization
 defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Marcel Lehmann"
+      image: "/assets/images/og-default.jpg"
+      comments: true
+      share: true
+      related: true
   - scope:
       path: "_pages"
       type: "pages"
     values:
       layout: "default"
+      author: "Marcel Lehmann"
+      image: "/assets/images/og-default.jpg"
+  - scope:
+      path: ""
+    values:
+      image: "/assets/images/og-default.jpg"
+      author: "Marcel Lehmann"
 
-# Navigation
+# Navigation (Elite UX)
 nav:
   - title: Home
     url: /
-  - title: About
+    description: "Microsoft Power Platform Experten Schweiz"
+  - title: Über uns
     url: /about/
+    description: "MVP Power Platform Consulting Team"
   - title: Services
     url: /services/
+    description: "Power Apps, Automate & BI Beratung"
   - title: Workshops
     url: /workshops/
-  - title: Newsletter
+    description: "Power Platform Admin Zertifizierung"
+  - title: Digitale Produkte
     url: /newsletter/
-  - title: Affiliate/Partner
+    description: "Newsletter & Automation Templates"
+  - title: Partner
     url: /affiliate/
+    description: "Affiliate Marketing Programm"
+
+# Advanced SEO Settings
+breadcrumbs: true
+search: true
+reading_time: true
+
+# Google Rich Results Schema
+schema:
+  type: Organization
+  name: The Power Addicts
+  url: https://marcelehmann.github.io/ThePowerAddicts.com
+  logo: https://marcelehmann.github.io/ThePowerAddicts.com/assets/images/logo.svg
+  description: Microsoft Power Platform Experten für Schweizer KMUs
+  address:
+    country: Schweiz
+    locality: Schweiz
+  contactPoint:
+    email: info@thepoweraddicts.com
+    contactType: customer service
+  sameAs:
+    - https://www.linkedin.com/company/thepoweraddicts
+    - https://github.com/marcelehmann
