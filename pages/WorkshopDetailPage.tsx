@@ -24,7 +24,7 @@ const HeroListItem: React.FC<{children: React.ReactNode;}> = ({ children }) => (
 const ListItem: React.FC<{children: React.ReactNode;}> = ({ children }) => (
     <li className="flex items-start gap-3">
         <CheckCircleIcon className="w-6 h-6 text-brand-green flex-shrink-0 mt-0.5" />
-        <span>{children}</span>
+        <span className="break-words min-w-0 flex-1">{children}</span>
     </li>
 );
 
@@ -57,15 +57,15 @@ const CurriculumWeek: React.FC<{ week: number; title: string; topics: string[]; 
     <div className="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 will-change-transform border-t-4 border-brand-teal h-full flex flex-col">
         <div className="flex items-start gap-4">
             <div className="w-12 h-12 flex items-center justify-center bg-brand-teal text-white font-bold text-2xl rounded-full flex-shrink-0">{week}</div>
-            <div>
-                <h3 className="text-xl font-bold text-brand-blue-dark">{title}</h3>
+            <div className="min-w-0 flex-1">
+                <h3 className="text-xl font-bold text-brand-blue-dark break-words">{title}</h3>
             </div>
         </div>
         <ul className="mt-4 space-y-2 flex-grow">
             {topics.map((topic, index) => (
                 <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
                     <CheckCircleIcon className="w-5 h-5 text-brand-green flex-shrink-0" />
-                    <span>{topic}</span>
+                    <span className="break-words min-w-0 flex-1">{topic}</span>
                 </li>
             ))}
         </ul>
