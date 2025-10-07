@@ -19,6 +19,10 @@ const WorkshopModal: React.FC = () => {
         waitingListApps: {
             de: 'https://workshop.thepoweraddicts.com/powerappsmaker_de',
             en: 'https://workshop.thepoweraddicts.com/powerappsmaker_en'
+        },
+        partner: {
+            de: 'https://workshop.thepoweraddicts.com/werde-partner',
+            en: 'https://workshop.thepoweraddicts.com/become-a-partner'
         }
     };
 
