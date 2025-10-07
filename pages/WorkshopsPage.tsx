@@ -4,7 +4,7 @@ import { CertificateIcon, CheckCircleIcon } from '../constants/icons';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useTranslation } from '../hooks/useTranslation';
 import { useLanguage } from '../contexts/LanguageContext';
-import Meta from '../components/Meta';
+import EnhancedMeta from '../components/EnhancedMeta';
 import StructuredData from '../components/StructuredData';
 
 const AnimatedSection: React.FC<{children: React.ReactNode, className?: string}> = ({ children, className }) => {
@@ -46,7 +46,12 @@ const WorkshopsPage: React.FC = () => {
 
   return (
     <>
-      <Meta title={meta.title} description={meta.description} />
+      <EnhancedMeta 
+        title={meta.title} 
+        description={meta.description}
+        keywords="Power Platform Workshop, Power Apps Kurs, Power Automate Schulung, Microsoft Power Platform Training, Power BI Workshop, Power Platform Zertifizierung, Power Platform Schulung Deutschland, Power Platform Schulung Schweiz, Power Platform Schulung Österreich"
+        ogImage="https://thepoweraddicts.com/logo.png"
+      />
       <StructuredData id="course-list-schema" data={courseListSchema} />
       <div className="bg-brand-light-bg">
         {/* Hero Section */}

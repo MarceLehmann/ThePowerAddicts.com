@@ -5,8 +5,11 @@ import type { TeamMember } from '../types';
 import { MvpLogo, RocketLaunchIcon, SearchIcon, ShieldCheckIcon, UsersIcon, GlobeAltIcon, LinkedInIcon, ClockIcon, CodeBracketIcon } from '../constants/icons';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useTranslation } from '../hooks/useTranslation';
-import Meta from '../components/Meta';
+import EnhancedMeta from '../components/EnhancedMeta';
+import OptimizedImage from '../components/OptimizedImage';
 import StructuredData from '../components/StructuredData';
+import { generateBreadcrumb } from '../constants/enhancedSchemas';
+import { useLocation } from 'react-router-dom';
 
 const AnimatedSection: React.FC<{children: React.ReactNode, className?: string}> = ({ children, className }) => {
     const { ref, animationClasses } = useScrollAnimation();
@@ -15,15 +18,24 @@ const AnimatedSection: React.FC<{children: React.ReactNode, className?: string}>
 
 const AboutPage: React.FC = () => {
   const { t } = useTranslation();
+  const location = useLocation();
   const expertiseCards = t('about.expertise.cards');
   const teamMembers = t('about.team.members');
   const philosophyCards = t('about.philosophy.cards');
   const meta = t('about.meta');
   const personSchemas = t('schemas.persons');
+  const breadcrumb = generateBreadcrumb(location.pathname);
 
   return (
     <>
-      <Meta title={meta.title} description={meta.description} />
+      <EnhancedMeta 
+        title={meta.title} 
+        description={meta.description}
+        keywords="Microsoft MVP, Power Platform Experten, ThePowerAddicts Team, Marcel Lehmann, Michael Roth, Power Platform Trainer DACH"
+        ogImage="https://www.thepoweraddicts.com/og-image.jpg"
+        ogType="profile"
+      />
+      <StructuredData id="breadcrumb-about" data={breadcrumb} />
       {personSchemas.map((schema: object, index: number) => (
         <StructuredData key={`person-${index}`} id={`person-schema-${index}`} data={schema} />
       ))}
@@ -135,7 +147,15 @@ type TeamMemberType = {
 const TeamMemberCard: React.FC<{ member: TeamMemberType }> = ({ member }) => (
   <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl flex flex-col md:flex-row gap-8 items-center">
     <div className="md:w-1/3 text-center flex-shrink-0">
-      <img src={member.image} alt={member.name} className="w-40 h-40 sm:w-48 sm:h-48 rounded-2xl mx-auto shadow-lg object-cover" />
+      <OptimizedImage 
+        src={member.image}
+        alt={`${member.name} - Microsoft MVP für Power Platform, spezialisiert auf ${member.specialty}`}
+        width={192}
+        height={192}
+        className="w-40 h-40 sm:w-48 sm:h-48 rounded-2xl mx-auto shadow-lg"
+        objectFit="cover"
+        priority={false}
+      />
     </div>
     <div className="md:w-2/3 w-full">
       <p className="text-gray-500 font-semibold">{member.specialty}</p>

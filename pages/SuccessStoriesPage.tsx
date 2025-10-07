@@ -3,7 +3,7 @@
 import React from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useTranslation } from '../hooks/useTranslation';
-import Meta from '../components/Meta';
+import EnhancedMeta from '../components/EnhancedMeta';
 
 const AnimatedSection: React.FC<{children: React.ReactNode, className?: string}> = ({ children, className }) => {
     const { ref, animationClasses } = useScrollAnimation();
@@ -17,7 +17,12 @@ const SuccessStoriesPage: React.FC = () => {
 
     return (
         <>
-            <Meta title={meta.title} description={meta.description} />
+            <EnhancedMeta 
+                title={meta.title} 
+                description={meta.description}
+                keywords="Power Platform Erfolgsgeschichten, Power Platform Referenzen, Power Platform Case Studies, Power Platform ROI, Power Platform Transformation"
+                ogImage="https://thepoweraddicts.com/logo.png"
+            />
             <div className="bg-brand-light-bg">
                 {/* Hero Section */}
                 <section className="bg-brand-light-blue py-24 text-center">

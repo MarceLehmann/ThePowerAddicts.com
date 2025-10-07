@@ -52,13 +52,13 @@ export const de = {
   },
   home: {
     meta: {
-      title: 'ThePowerAddicts | Power Platform Schulungen & Kurse (DACH)',
-      description: 'Intensive Power Platform Workshops und Admin-Schulungen von Microsoft MVPs. Werden Sie in 4 Wochen zum Experten. Für Schweiz, Deutschland & Österreich.'
+      title: 'Power Platform Schulung DACH | Microsoft MVP Workshops & Beratung',
+      description: 'Power Platform Schulung von Microsoft MVPs: Intensive Admin-, Power Apps- & Power Automate-Kurse. Werden Sie in 4 Wochen zum Experten. Top-Schulungen für Schweiz, Deutschland & Österreich.'
     },
     hero: {
-      title1: 'Microsoft Power Platform Expertise',
-      title2: 'Workshops & Beratung',
-      subtitle: 'Werde Power Platform Expert in 4 Wochen oder hole dir unabhängige MVP-Beratung. Führende Power Platform Schulungen in der Schweiz, Deutschland und Österreich (DACH-Region).',
+      title1: 'Power Platform Schulung DACH',
+      title2: 'von Microsoft MVPs',
+      subtitle: 'Führende Power Platform Schulung in der Schweiz, Deutschland und Österreich. Werden Sie Power Platform Expert in 4 Wochen oder holen Sie sich unabhängige MVP-Beratung für Ihr Unternehmen.',
       stats: [
         { value: '300+', label: 'Professionals geschult' },
         { value: '23%', label: 'Ø Gehaltserhöhung' },
@@ -162,12 +162,12 @@ export const de = {
   },
   workshops: {
     meta: {
-      title: 'Unsere Power Platform Workshops & Kurse | ThePowerAddicts',
-      description: 'Entdecken Sie unsere Experten-Workshops für Power Platform Admin, Power Automate und Power Apps. Buchen Sie Ihre Schulung und starten Sie Ihre Karriere im DACH-Raum.'
+      title: 'Power Platform Workshop | Power Apps & Power Automate Kurs DACH',
+      description: 'Power Platform Workshop von Microsoft MVPs: Admin-Schulung, Power Apps Kurs, Power Automate Training. Intensive 4-Wochen-Programme mit ThePowerAddicts Zertifizierung für DACH.'
     },
     hero: {
-        title: "Power Platform Expert-Workshops & Schulungen",
-        subtitle: "Strukturierte 4-Wochen-Kurse mit ThePowerAddicts Zertifizierung. Basiert auf 150+ Enterprise-Projekten. Garantiert messbare Ergebnisse für Ihre Weiterbildung."
+        title: "Power Platform Workshop: Vom Anfänger zum Expert",
+        subtitle: "Strukturierte 4-Wochen Power Platform Kurse mit ThePowerAddicts Zertifizierung. Basiert auf 150+ Enterprise-Projekten. Garantiert messbare Ergebnisse für Ihre Power Platform Schulung."
     },
     available: "Verfügbare Expert-Workshops",
     list: [
@@ -249,14 +249,14 @@ export const de = {
   },
   workshopDetail: {
     meta: {
-      title: 'Power Platform Admin Workshop (4 Wochen) | ThePowerAddicts',
-      description: 'Detaillierte Informationen zu unserem 4-wöchigen Power Platform Admin Kurs. Lernen Sie Governance, Security, Monitoring und das CoE Starter Kit.'
+      title: 'Power Platform Admin Kurs | 4-Wochen Zertifizierung DACH',
+      description: 'Power Platform Admin Schulung: 4-wöchiger Kurs zu Governance, Security, Monitoring und CoE Starter Kit. Von Microsoft MVPs. Jetzt für DACH-Region buchen.'
     },
     nav: "Werde Power Platform Admin in 4 Wochen",
     title: "Werde Power Platform Admin in 4 Wochen",
     heroList: [
-      "Praxisnahe Governance-Strategien, die Teams befähigen statt einschränken.",
-      "Automatisierte Monitoring-Prozesse, die Risiken minimieren und Kosten kontrollieren.",
+      "Praxisnahe Governance-Strategien in der Power Platform Admin Schulung",
+      "Automatisierte Monitoring-Prozesse für sichere Power Platform Administration",
       "Hands-on Erfahrung mit dem CoE Starter Kit in echten Enterprise-Szenarien."
     ],
     cta: "Auf die Warteliste eintragen",

@@ -6,7 +6,7 @@ import { CheckCircleIcon, CodeBracketIcon, UsersIcon, ClipboardDocumentListIcon 
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useTranslation } from '../hooks/useTranslation';
 import { useLanguage } from '../contexts/LanguageContext';
-import Meta from '../components/Meta';
+import EnhancedMeta from '../components/EnhancedMeta';
 import StructuredData from '../components/StructuredData';
 
 const AnimatedSection: React.FC<{children: React.ReactNode, className?: string}> = ({ children, className }) => {
@@ -101,7 +101,12 @@ const WorkshopDetailPage: React.FC = () => {
 
     return (
         <>
-            <Meta title={meta.title} description={meta.description} />
+            <EnhancedMeta 
+                title={meta.title} 
+                description={meta.description}
+                keywords="Power Platform Admin, Power Platform Administration, Power Platform Governance, Power Platform Sicherheit, Power Platform CoE, Power Platform Tenant Management, Power Platform DLP"
+                ogImage="https://thepoweraddicts.com/logo.png"
+            />
             <StructuredData id="course-detail-schema" data={courseSchema} />
             <StructuredData id="faq-schema" data={faqSchema} />
             <StructuredData id="breadcrumb-schema" data={breadcrumbSchema} />

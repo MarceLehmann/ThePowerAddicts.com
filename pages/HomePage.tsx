@@ -7,8 +7,9 @@ import { GraduationCapIcon, SearchIcon, CheckCircleIcon, UsersIcon, ClockIcon, S
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useTranslation } from '../hooks/useTranslation';
 import { useLanguage } from '../contexts/LanguageContext';
-import Meta from '../components/Meta';
+import EnhancedMeta from '../components/EnhancedMeta';
 import StructuredData from '../components/StructuredData';
+import { enhancedSchemas } from '../constants/enhancedSchemas';
 
 const StatCard: React.FC<{ stat: Stat }> = ({ stat }) => (
     <div className="text-center">
@@ -69,9 +70,17 @@ const HomePage: React.FC = () => {
 
   return (
     <>
-      <Meta title={meta.title} description={meta.description} />
+      <EnhancedMeta 
+        title={meta.title} 
+        description={meta.description}
+        keywords="Power Platform Schulung DACH, Power Platform Beratung Schweiz, Microsoft MVP, Power Apps Kurs, Power Automate Workshop Deutschland, Power Platform Admin Österreich, Power Platform Training, Microsoft Power Platform DACH"
+        ogImage="https://www.thepoweraddicts.com/og-image.jpg"
+        ogType="website"
+      />
       <StructuredData id="organization-schema" data={orgSchema} />
       <StructuredData id="website-schema" data={websiteSchema} />
+      <StructuredData id="local-business" data={enhancedSchemas.localBusiness} />
+      <StructuredData id="professional-service" data={enhancedSchemas.professionalService} />
       <div className="bg-brand-light-bg">
         {/* Hero Section */}
         <section className="relative overflow-hidden gear-bg">

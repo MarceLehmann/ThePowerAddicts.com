@@ -1,0 +1,39 @@
+/* Google Fonts - preloaded */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* Tailwind CSS Base Imports - wird zu optimiertem CSS kompiliert */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom animations - jetzt Teil des Builds */
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.7s ease-out forwards;
+  }
+  
+  .will-change-transform {
+    will-change: transform;
+  }
+  
+  .gear-bg {
+    background-image:
+      radial-gradient(circle at 15% 85%, rgba(0, 169, 224, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 85% 20%, rgba(0, 45, 114, 0.05) 0%, transparent 40%);
+  }
+}
+
+/* Custom keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Google Fonts - preloaded */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');

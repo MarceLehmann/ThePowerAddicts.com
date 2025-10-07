@@ -4,60 +4,50 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ThePowerAddicts - Power Platform Workshops & Consulting</title>
-    <meta name="description" content="Intensive Power Platform Workshops und Admin-Schulungen von Microsoft MVPs. Werden Sie in 4 Wochen zum Experten. Für Schweiz, Deutschland & Österreich." />
-    <meta name="keywords" content="Power Platform, Power Apps, Power Automate, Schulung, Workshop, Kurs, Training, Beratung, DACH, Schweiz, Deutschland, Österreich, Microsoft MVP" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              'brand-teal': '#00A9E0',
-              'brand-teal-dark': '#008CBA',
-              'brand-blue-dark': '#002D72',
-              'brand-gold': '#FDB913',
-              'brand-purple': '#A45A9A',
-              'brand-green': '#8CC63F',
-              'brand-light-bg': '#F7FAFC',
-              'brand-light-blue': '#F0F9FF',
-            },
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-            },
-            boxShadow: {
-              'brand-glow': '0 0 25px rgba(0, 169, 224, 0.3)',
-            },
-          },
-        },
-      }
-    </script>
+    
+    <!-- Preconnect für kritische Domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload kritischer Ressourcen -->
+    <link rel="preload" href="/index.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style">
+    
+    <!-- SEO Meta Tags -->
+    <title>ThePowerAddicts - Power Platform Schulungen & Beratung DACH | Microsoft MVP</title>
+    <meta name="description" content="Intensive Power Platform Workshops und Admin-Schulungen von Microsoft MVPs. Werden Sie in 4 Wochen zum Experten. Für Schweiz, Deutschland & Österreich." />
+    <meta name="keywords" content="Power Platform, Power Apps, Power Automate, Schulung, Workshop, Kurs, Training, Beratung, DACH, Schweiz, Deutschland, Österreich, Microsoft MVP" />
+    <meta name="author" content="ThePowerAddicts - Marcel Lehmann & Michael Roth" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.thepoweraddicts.com/" />
+    <meta property="og:title" content="ThePowerAddicts - Power Platform Schulungen & Beratung DACH" />
+    <meta property="og:description" content="Intensive Power Platform Workshops und Admin-Schulungen von Microsoft MVPs. Werden Sie in 4 Wochen zum Experten." />
+    <meta property="og:image" content="https://www.thepoweraddicts.com/og-image.jpg" />
+    <meta property="og:site_name" content="ThePowerAddicts" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:locale:alternate" content="de_CH" />
+    <meta property="og:locale:alternate" content="de_AT" />
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ThePowerAddicts" />
+    <meta name="twitter:title" content="ThePowerAddicts - Power Platform Schulungen & Beratung DACH" />
+    <meta name="twitter:description" content="Intensive Power Platform Workshops von Microsoft MVPs. Werden Sie in 4 Wochen zum Experten." />
+    <meta name="twitter:image" content="https://www.thepoweraddicts.com/og-image.jpg" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.thepoweraddicts.com/" />
+    
+    <!-- Google Fonts - optimiert -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .animate-fade-in-up {
-        animation: fadeInUp 0.7s ease-out forwards;
-      }
-      .will-change-transform {
-        will-change: transform;
-      }
-      .gear-bg {
-        background-image:
-          radial-gradient(circle at 15% 85%, rgba(0, 169, 224, 0.05) 0%, transparent 40%),
-          radial-gradient(circle at 85% 20%, rgba(0, 45, 114, 0.05) 0%, transparent 40%);
-      }
-    </style>
+    
+    <!-- Lokales CSS (Tailwind Build) -->
+    <link rel="stylesheet" href="/index.css">
+    
+    <!-- Structured Data wird dynamisch via React eingefügt -->
   </head>
   <body class="bg-brand-light-bg text-gray-800">
     <div id="root"></div>

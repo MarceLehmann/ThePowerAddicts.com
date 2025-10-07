@@ -1,0 +1,24 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Disallow admin/test pages (falls vorhanden)
+Disallow: /admin/
+Disallow: /test/
+Disallow: /_vite/
+
+# Sitemap
+Sitemap: https://www.thepoweraddicts.com/sitemap.xml
+
+# Crawl-delay für große Bots
+Crawl-delay: 0
+
+# Spezielle Bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /

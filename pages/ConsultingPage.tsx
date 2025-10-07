@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { SearchIcon, ShieldCheckIcon, CheckCircleIcon } from '../constants/icons';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useTranslation } from '../hooks/useTranslation';
-import Meta from '../components/Meta';
+import EnhancedMeta from '../components/EnhancedMeta';
 import StructuredData from '../components/StructuredData';
 
 const AnimatedSection: React.FC<{children: React.ReactNode, className?: string}> = ({ children, className }) => {
@@ -22,7 +22,12 @@ const ConsultingPage: React.FC = () => {
     
     return (
         <>
-            <Meta title={meta.title} description={meta.description} />
+            <EnhancedMeta 
+                title={meta.title} 
+                description={meta.description}
+                keywords="Power Platform Beratung, Microsoft Power Platform Consulting, MVP Beratung, Power Platform Strategie, Power Platform Architektur, Power Platform Best Practices, Power Platform Consulting Deutschland, Power Platform Consulting Schweiz, Power Platform Beratung Österreich"
+                ogImage="https://thepoweraddicts.com/logo.png"
+            />
             {serviceSchema.map((schema: object, index: number) => (
               <StructuredData key={`service-${index}`} id={`service-schema-${index}`} data={schema} />
             ))}

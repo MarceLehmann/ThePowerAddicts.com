@@ -5,7 +5,7 @@ import { useTranslation } from '../hooks/useTranslation';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { CheckCircleIcon } from '../constants/icons';
-import Meta from '../components/Meta';
+import EnhancedMeta from '../components/EnhancedMeta';
 
 const AnimatedSection: React.FC<{children: React.ReactNode, className?: string}> = ({ children, className }) => {
     const { ref, animationClasses } = useScrollAnimation();
@@ -21,7 +21,12 @@ const PartnerPage: React.FC = () => {
 
     return (
         <>
-            <Meta title={meta.title} description={meta.description} />
+            <EnhancedMeta 
+                title={meta.title} 
+                description={meta.description}
+                keywords="Power Platform Partnerschaft, Power Platform Zusammenarbeit, Power Platform Kooperation, Power Platform Business Partner, Power Platform Empfehlungsprogramm"
+                ogImage="https://thepoweraddicts.com/logo.png"
+            />
             <div className="bg-brand-light-bg">
                 {/* Hero Section */}
                 <section className="bg-brand-blue-dark text-white py-24">

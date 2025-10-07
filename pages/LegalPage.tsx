@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useTranslation } from '../hooks/useTranslation';
-import Meta from '../components/Meta';
+import EnhancedMeta from '../components/EnhancedMeta';
 import StructuredData from '../components/StructuredData';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
@@ -18,7 +18,12 @@ const LegalPage: React.FC = () => {
 
   return (
     <>
-      <Meta title={meta.title} description={meta.description} />
+      <EnhancedMeta 
+        title={meta.title} 
+        description={meta.description}
+        keywords="Impressum, Datenschutz, AGB, Rechtliches"
+        ogImage="https://thepoweraddicts.com/logo.png"
+      />
       <StructuredData id="organization-schema" data={orgSchema} />
       <div className="bg-brand-light-bg">
         {/* Hero Section */}
