@@ -14,11 +14,17 @@ import SuccessStoriesPage from './pages/SuccessStoriesPage';
 import ContactPage from './pages/ContactPage';
 import PartnerPage from './pages/PartnerPage';
 import LegalPage from './pages/LegalPage'; // Import the new LegalPage
+import WorkshopModal from './components/WorkshopModal';
 import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
 
 const SystemeIoModal: React.FC = () => {
     const { isModalOpen, hideModal, modalType, t } = useLanguage();
     const contentRef = useRef<HTMLDivElement>(null);
+
+    // Only handle newsletter and partner modals (not workshop modals)
+    if (!isModalOpen || !modalType || ['waitingListAdmin', 'waitingListAutomate', 'waitingListApps'].includes(modalType)) {
+        return null;
+    }
 
     useEffect(() => {
         if (isModalOpen && modalType && contentRef.current) {
@@ -42,8 +48,6 @@ const SystemeIoModal: React.FC = () => {
             });
         }
     }, [isModalOpen, modalType, t]);
-    
-    if (!isModalOpen || !modalType) return null;
 
     return (
       <div 
@@ -90,6 +94,7 @@ const AppContent: React.FC = () => {
         </main>
         <Footer />
       </div>
+      <WorkshopModal />
       <SystemeIoModal />
     </HashRouter>
   );
