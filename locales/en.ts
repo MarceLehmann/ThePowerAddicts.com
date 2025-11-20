@@ -126,7 +126,7 @@ export const en = {
           {
             name: 'Marcel Lehmann',
             specialty: 'PowerApps & PowerAutomate',
-            image: 'https://raw.githubusercontent.com/MarceLehmann/ThePowerAddicts.com/main/public/marcel.webp',
+            image: '/marcel.webp',
             bio: "In 2017, I was frustrated with repetitive Excel tasks, and my first Flow saved me 2 hours daily. This 'wow' experience drives me today as an MVP to help SMEs automate up to 60% of their processes. I know from my own experience how the Power Platform can change a career: my salary has increased by over 75% in just a few years.",
             website: 'www.kmupower.com',
             websiteUrl: 'https://www.kmupower.com',
@@ -139,7 +139,7 @@ export const en = {
           {
             name: 'Michael Roth',
             specialty: 'Governance',
-            image: 'https://raw.githubusercontent.com/MarceLehmann/ThePowerAddicts.com/main/public/michael.webp',
+            image: '/michael.webp',
             bio: "Most companies realize it too late: without governance, the Power Platform becomes a security risk instead of a productivity tool. As a Power Platform MVP, I focus on practical governance strategies that empower teams rather than restrict them.",
             website: 'www.michaelroth42.com',
             websiteUrl: 'https://www.michaelroth42.com',
@@ -652,7 +652,7 @@ export const en = {
           "name": "ThePowerAddicts"
         },
         "url": "https://www.linkedin.com/in/marcelehmann/",
-        "image": "https://raw.githubusercontent.com/MarceLehmann/ThePowerAddicts.com/main/public/marcel.webp",
+        "image": "https://www.thepoweraddicts.com/marcel.webp",
         "sameAs": [
           "https://www.linkedin.com/in/marcelehmann/",
           "https://www.kmupower.com",
@@ -670,7 +670,7 @@ export const en = {
           "name": "ThePowerAddicts"
         },
         "url": "https://www.linkedin.com/in/michaelroth42/",
-        "image": "https://raw.githubusercontent.com/MarceLehmann/ThePowerAddicts.com/main/public/michael.webp",
+        "image": "https://www.thepoweraddicts.com/michael.webp",
         "sameAs": [
           "https://www.linkedin.com/in/michaelroth42/",
           "https://www.michaelroth42.com"

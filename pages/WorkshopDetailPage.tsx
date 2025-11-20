@@ -98,6 +98,7 @@ const WorkshopDetailPage: React.FC = () => {
     const faqItems = t('workshopDetail.faq.items');
     const meta = t('workshopDetail.meta');
     const courseSchema = t('schemas.courseDetail');
+    const courseInstances = t('schemas.courseInstances');
     const faqSchema = t('schemas.faq');
     const breadcrumbSchema = t('schemas.breadcrumb');
 
@@ -133,6 +134,9 @@ const WorkshopDetailPage: React.FC = () => {
                 ogImage="https://thepoweraddicts.com/logo.png"
             />
             <StructuredData id="course-detail-schema" data={courseSchema} />
+                        {Array.isArray(courseInstances) && courseInstances.length > 0 && courseInstances.map((inst: any, idx: number) => (
+                            <StructuredData key={`course-instance-${idx}`} id={`course-instance-${idx}`} data={inst} />
+                        ))}
             <StructuredData id="workshop-service-schema" data={workshopServiceSchema} />
             <StructuredData id="faq-schema" data={faqSchema} />
             <StructuredData id="breadcrumb-schema" data={breadcrumbSchema} />

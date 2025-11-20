@@ -59,12 +59,66 @@ export const de = {
       title1: 'Power Platform Schulung DACH',
       title2: 'von Microsoft MVPs',
       subtitle: 'Führende Power Platform Schulung in der Schweiz, Deutschland und Österreich. Werden Sie Power Platform Expert in 4 Wochen oder holen Sie sich unabhängige MVP-Beratung für Ihr Unternehmen.',
+      nextCourse: 'Nächstes Intensiv-Programm',
+      courseDate: '20. Januar - 14. Februar 2026',
+      courseDetails: '4 Wochen | 3 Live-Sessions pro Woche à 90min',
       stats: [
         { value: '300+', label: 'Professionals geschult' },
         { value: '23%', label: 'Ø Gehaltserhöhung' },
       ],
-      ctaWorkshops: 'Workshops entdecken',
-      ctaConsulting: 'Beratung anfragen'
+      ctaWorkshops: 'Jetzt anmelden',
+      ctaConsulting: 'Beratung anfragen',
+      ctaAllDates: 'Alle Termine'
+    },
+    upcomingCourses: {
+      title: 'Power Platform Intensiv-Programme',
+      subtitle: 'Wählen Sie Ihren Termin – Alle Kurse 100% online via Microsoft Teams',
+      formats: [
+        {
+          type: 'intensiv',
+          name: 'Intensiv-Programm',
+          tagline: 'Power Platform Admin',
+          duration: '4 Wochen (12 Sessions)',
+          participants: 'Max. 12 Personen',
+          format: 'Online per Microsoft Teams',
+          schedule: '3x pro Woche, 18:30-20:00 Uhr',
+          price: 1290,
+          earlyBirdPrice: 990,
+          currency: 'CHF',
+          dates: [
+            {
+              id: 'admin-jan-2026',
+              startDate: '2026-01-20',
+              endDate: '2026-02-14',
+              displayDate: '20. Jan - 14. Feb 2026',
+              time: '18:30 - 20:00 Uhr',
+              status: 'available',
+              spotsLeft: 8,
+              featured: true
+            },
+            {
+              id: 'admin-mar-2026',
+              startDate: '2026-03-09',
+              endDate: '2026-04-03',
+              displayDate: '09. Mär - 03. Apr 2026',
+              time: '18:30 - 20:00 Uhr',
+              status: 'available',
+              spotsLeft: 12
+            }
+          ]
+        }
+      ],
+      statusLabels: {
+        available: 'Verfügbar',
+        limited: 'Wenige Plätze',
+        waitlist: 'Warteliste',
+        full: 'Ausgebucht'
+      },
+      spotsLeft: 'Plätze frei',
+      perPerson: 'pro Person',
+      earlyBird: 'Frühbucher bis',
+      register: 'Jetzt anmelden',
+      details: 'Mehr Details'
     },
     expertisePaths: {
       title: 'Zwei Wege zur Power Platform Expertise',
@@ -73,15 +127,15 @@ export const de = {
         {
           id: 'admin',
           modalId: 'waitingListAdmin',
-          title: 'Werde Power Platform Admin in 4 Wochen',
+          title: 'Power Platform Admin – Intensiv-Programm',
           description: 'Lernen Sie, eine sichere, skalierbare und effiziente Power Platform Umgebung auf Enterprise-Niveau zu verwalten.',
-          cta: 'Auf die Warteliste',
+          cta: 'Jetzt anmelden',
           detailLink: '/workshops/power-platform-admin-in-4-wochen'
         },
         {
           id: 'automate',
           modalId: 'waitingListAutomate',
-          title: 'Werde Power Automate Profi in 4 Wochen',
+          title: 'Power Automate Profi – Intensiv-Programm',
           description: 'Automatisieren Sie komplexe Geschäftsprozesse mit fortgeschrittenen Techniken in Power Automate.',
           cta: 'Auf die Warteliste',
           detailLink: '#'
@@ -89,7 +143,7 @@ export const de = {
         {
           id: 'apps',
           modalId: 'waitingListApps',
-          title: 'Werde Power Apps Profi in 4 Wochen',
+          title: 'Power Apps Profi – Intensiv-Programm',
           description: 'Entwickeln Sie anspruchsvolle, performante und benutzerfreundliche Business-Anwendungen mit Power Apps.',
           cta: 'Auf die Warteliste',
           detailLink: '#'
@@ -99,6 +153,11 @@ export const de = {
         title: 'Unabhängige Beratung',
         description: 'Holen Sie sich objektive MVP-Expertise für Ihre komplexesten Herausforderungen.',
         cta: 'Beratung anfragen'
+      },
+      customTraining: {
+        title: 'Nicht der passende Termin dabei?',
+        description: 'Kein Problem! Wir bieten auch individuelle Schulungen für Sie oder Ihr Team an. Flexibel nach Ihren Terminen und angepasst an Ihre spezifischen Bedürfnisse.',
+        cta: 'Individuelle Schulung anfragen'
       }
     }
   },
@@ -126,7 +185,7 @@ export const de = {
           {
             name: 'Marcel Lehmann',
             specialty: 'PowerApps & PowerAutomate',
-            image: 'https://raw.githubusercontent.com/MarceLehmann/ThePowerAddicts.com/main/public/marcel.webp',
+            image: '/marcel.webp',
             bio: "2017 war ich frustriert von repetitiven Excel-Tasks und mein erster Flow sparte mir 2 Stunden täglich. Diese 'Wow'-Erfahrung treibt mich heute als MVP an, KMUs zu helfen, bis zu 60% ihrer Prozesse zu automatisieren. Ich weiss aus eigener Erfahrung, wie die Power Platform eine Karriere verändert: Mein Gehalt ist dadurch in wenigen Jahren um über 75% gestiegen.",
             website: 'www.kmupower.com',
             websiteUrl: 'https://www.kmupower.com',
@@ -139,7 +198,7 @@ export const de = {
           {
             name: 'Michael Roth',
             specialty: 'Governance',
-            image: 'https://raw.githubusercontent.com/MarceLehmann/ThePowerAddicts.com/main/public/michael.webp',
+            image: '/michael.webp',
             bio: "Die meisten Unternehmen erkennen zu spät: Ohne Governance wird die Power Platform zum Sicherheitsrisiko statt zum Produktivitäts-Tool. Als Power Platform MVP fokussiere ich mich auf praxisnahe Governance-Strategien, die Teams befähigen statt einschränken.",
             website: 'www.michaelroth42.com',
             websiteUrl: 'https://www.michaelroth42.com',
@@ -652,7 +711,7 @@ export const de = {
           "name": "ThePowerAddicts"
         },
         "url": "https://www.linkedin.com/in/marcelehmann/",
-        "image": "https://raw.githubusercontent.com/MarceLehmann/ThePowerAddicts.com/main/public/marcel.webp",
+        "image": "https://www.thepoweraddicts.com/marcel.webp",
         "sameAs": [
           "https://www.linkedin.com/in/marcelehmann/",
           "https://www.kmupower.com",
@@ -670,7 +729,7 @@ export const de = {
           "name": "ThePowerAddicts"
         },
         "url": "https://www.linkedin.com/in/michaelroth42/",
-        "image": "https://raw.githubusercontent.com/MarceLehmann/ThePowerAddicts.com/main/public/michael.webp",
+        "image": "https://www.thepoweraddicts.com/michael.webp",
         "sameAs": [
           "https://www.linkedin.com/in/michaelroth42/",
           "https://www.michaelroth42.com"

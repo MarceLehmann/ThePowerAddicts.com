@@ -18,6 +18,79 @@ const StatCard: React.FC<{ stat: Stat }> = ({ stat }) => (
     </div>
 );
 
+interface CourseDate {
+  id: string;
+  startDate: string;
+  endDate: string;
+  displayDate: string;
+  time: string;
+  status: 'available' | 'limited' | 'waitlist' | 'full';
+  spotsLeft?: number;
+  featured?: boolean;
+}
+
+const CourseDateCard: React.FC<{ 
+  date: CourseDate; 
+  format: any;
+  statusLabels: any;
+  labels: any;
+  onRegister: () => void;
+}> = ({ date, format, statusLabels, labels, onRegister }) => {
+  const statusColors = {
+    available: 'bg-green-100 text-green-800 border-green-200',
+    limited: 'bg-yellow-100 text-yellow-800 border-yellow-200',
+    waitlist: 'bg-orange-100 text-orange-800 border-orange-200',
+    full: 'bg-red-100 text-red-800 border-red-200'
+  };
+
+  return (
+    <div className={`bg-white p-6 rounded-xl shadow-lg border-2 transition-all hover:shadow-xl hover:-translate-y-1 ${date.featured ? 'border-brand-teal ring-2 ring-brand-teal/20' : 'border-gray-200'}`}>
+      {date.featured && (
+        <div className="mb-3">
+          <span className="inline-block bg-brand-gold text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Beliebt</span>
+        </div>
+      )}
+      <div className="flex items-start justify-between mb-4">
+        <div>
+          <h3 className="text-xl font-bold text-brand-blue-dark">{date.displayDate}</h3>
+          <p className="text-sm text-gray-600 mt-1">{format.tagline}</p>
+          <p className="text-sm text-gray-500 mt-1">{date.time}</p>
+          <p className="text-xs text-gray-500 mt-1">{format.format}</p>
+        </div>
+      </div>
+      <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold border ${statusColors[date.status]} mb-4`}>
+        <div className={`w-2 h-2 rounded-full ${date.status === 'available' ? 'bg-green-500' : date.status === 'limited' ? 'bg-yellow-500' : 'bg-gray-400'}`}></div>
+        {statusLabels[date.status]}
+        {date.spotsLeft && date.status === 'available' && ` • ${date.spotsLeft} ${labels.spotsLeft}`}
+      </div>
+      <div className="border-t pt-4 mt-4">
+        <div className="flex items-baseline justify-between mb-4">
+          <div>
+            {format.earlyBirdPrice && (
+              <p className="text-sm text-green-600 font-bold">CHF {format.earlyBirdPrice}.-</p>
+            )}
+            <p className={`${format.earlyBirdPrice ? 'text-sm text-gray-500 line-through' : 'text-2xl font-bold text-brand-blue-dark'}`}>
+              CHF {format.price}.-
+            </p>
+            <p className="text-xs text-gray-500">{labels.perPerson}</p>
+          </div>
+        </div>
+        <button 
+          onClick={onRegister}
+          disabled={date.status === 'full'}
+          className={`w-full font-bold py-3 px-6 rounded-full transition-all ${
+            date.status === 'full' 
+              ? 'bg-gray-300 text-gray-600 cursor-not-allowed' 
+              : 'bg-gradient-to-r from-brand-teal to-brand-teal-dark text-white hover:scale-105 hover:shadow-lg'
+          }`}
+        >
+          {date.status === 'full' ? statusLabels.full : labels.register}
+        </button>
+      </div>
+    </div>
+  );
+};
+
 const AnimatedSection: React.FC<{children: React.ReactNode, className?: string, id?: string}> = ({ children, className, id }) => {
     const { ref, animationClasses } = useScrollAnimation();
     return <section ref={ref} id={id} className={`${className} ${animationClasses}`}>{children}</section>;
@@ -61,12 +134,43 @@ const HomeWorkshopCard: React.FC<{ workshop: { id: string; modalId: string; titl
 
 const HomePage: React.FC = () => {
   const { t } = useTranslation();
+  const { showModal } = useLanguage();
   const heroStats: Stat[] = t('home.hero.stats');
   const expertisePathsData = t('home.expertisePaths');
+  const upcomingCourses = t('home.upcomingCourses');
   const meta = t('home.meta');
   const orgSchema = t('schemas.organization');
   const websiteSchema = t('schemas.website');
 
+  // Generate Event Schema for each course date
+  const eventSchemas = upcomingCourses.formats.flatMap((format: any) => 
+    format.dates.map((date: any) => ({
+      '@context': 'https://schema.org',
+      '@type': 'EducationEvent',
+      name: `${format.name}: ${format.tagline}`,
+      description: `${format.duration} Online-Kurs via Microsoft Teams`,
+      startDate: date.startDate,
+      endDate: date.endDate,
+      eventStatus: date.status === 'full' ? 'https://schema.org/EventSoldOut' : 'https://schema.org/EventScheduled',
+      eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+      location: {
+        '@type': 'VirtualLocation',
+        url: 'https://www.thepoweraddicts.com'
+      },
+      organizer: {
+        '@type': 'Organization',
+        name: 'ThePowerAddicts',
+        url: 'https://www.thepoweraddicts.com'
+      },
+      offers: {
+        '@type': 'Offer',
+        price: format.earlyBirdPrice || format.price,
+        priceCurrency: 'CHF',
+        availability: date.status === 'full' ? 'https://schema.org/SoldOut' : 'https://schema.org/InStock',
+        validFrom: new Date().toISOString().split('T')[0]
+      }
+    }))
+  );
 
   return (
     <>
@@ -79,12 +183,15 @@ const HomePage: React.FC = () => {
       />
       <StructuredData id="organization-schema" data={orgSchema} />
       <StructuredData id="website-schema" data={websiteSchema} />
+      {eventSchemas.map((schema: any, idx: number) => (
+        <StructuredData key={`event-${idx}`} id={`event-schema-${idx}`} data={schema} />
+      ))}
       <StructuredData id="local-business" data={enhancedSchemas.localBusiness} />
       <StructuredData id="professional-service" data={enhancedSchemas.professionalService} />
       <div className="bg-brand-light-bg">
         {/* Hero Section */}
         <section className="relative overflow-hidden gear-bg">
-          <div className="container mx-auto px-6 pt-20 pb-28 text-center">
+          <div className="container mx-auto px-6 pt-20 pb-16 text-center">
             <h1 className="text-4xl md:text-6xl font-extrabold text-brand-blue-dark leading-tight">
               {t('home.hero.title1')} <br />
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-teal to-brand-purple">{t('home.hero.title2')}</span>
@@ -92,35 +199,108 @@ const HomePage: React.FC = () => {
             <h2 className="mt-4 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               {t('home.hero.subtitle')}
             </h2>
+            
+            {/* Next Course Highlight */}
+            <div className="mt-8 bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-xl max-w-2xl mx-auto border-2 border-brand-teal">
+              <p className="text-sm font-semibold text-brand-teal uppercase tracking-wide">{t('home.hero.nextCourse')}</p>
+              <p className="text-2xl md:text-3xl font-bold text-brand-blue-dark mt-2">{t('home.hero.courseDate')}</p>
+              <p className="text-gray-600 mt-1">{t('home.hero.courseDetails')}</p>
+              <div className="mt-4 flex flex-col sm:flex-row justify-center items-center gap-3">
+                <button 
+                  onClick={() => showModal('waitingListAdmin')}
+                  className="w-full sm:w-auto bg-gradient-to-r from-brand-teal to-brand-teal-dark text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-brand-glow"
+                >
+                  {t('home.hero.ctaWorkshops')}
+                </button>
+                <Link 
+                  to="/workshops" 
+                  className="w-full sm:w-auto text-brand-teal font-semibold hover:underline"
+                >
+                  {t('home.hero.ctaAllDates')}
+                </Link>
+              </div>
+            </div>
+
             <div className="mt-8 grid grid-cols-2 gap-8 max-w-lg mx-auto">
                 {heroStats.map(stat => <StatCard key={stat.label} stat={stat} />)}
-            </div>
-            <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
-              <Link to="/workshops" className="w-full sm:w-auto bg-gradient-to-r from-brand-teal to-brand-teal-dark text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-brand-glow">
-                {t('home.hero.ctaWorkshops')}
-              </Link>
-              <Link to="/unabhaengige-beratung" className="w-full sm:w-auto bg-white text-brand-blue-dark font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg border border-gray-300">
-                {t('home.hero.ctaConsulting')}
-              </Link>
             </div>
           </div>
         </section>
 
+        {/* Upcoming Courses Section */}
+        <AnimatedSection className="py-24 bg-white" id="termine">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-brand-blue-dark">{upcomingCourses.title}</h2>
+            <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto text-center">{upcomingCourses.subtitle}</p>
+            
+            {upcomingCourses.formats.map((format: any, formatIdx: number) => (
+              <div key={formatIdx} className="mt-12">
+                <div className="bg-brand-light-blue p-6 rounded-xl mb-6">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    <div>
+                      <h3 className="text-2xl font-bold text-brand-blue-dark">{format.name}</h3>
+                      <p className="text-gray-600 mt-1">{format.tagline}</p>
+                    </div>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                      <div>
+                        <p className="text-gray-500 font-semibold">Dauer</p>
+                        <p className="text-brand-blue-dark font-bold">{format.duration}</p>
+                      </div>
+                      <div>
+                        <p className="text-gray-500 font-semibold">Teilnehmer</p>
+                        <p className="text-brand-blue-dark font-bold">{format.participants}</p>
+                      </div>
+                      <div>
+                        <p className="text-gray-500 font-semibold">Format</p>
+                        <p className="text-brand-blue-dark font-bold">{format.format}</p>
+                      </div>
+                      <div>
+                        <p className="text-gray-500 font-semibold">Zeitplan</p>
+                        <p className="text-brand-blue-dark font-bold">{format.schedule}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {format.dates.map((date: CourseDate, dateIdx: number) => (
+                    <AnimatedSection key={dateIdx}>
+                      <CourseDateCard 
+                        date={date}
+                        format={format}
+                        statusLabels={upcomingCourses.statusLabels}
+                        labels={upcomingCourses}
+                        onRegister={() => showModal('waitingListAdmin')}
+                      />
+                    </AnimatedSection>
+                  ))}
+                </div>
+              </div>
+            ))}
+
+            {/* Custom Training CTA */}
+            <AnimatedSection className="mt-16">
+              <div className="bg-gradient-to-r from-brand-blue-dark to-brand-purple p-8 rounded-2xl text-center text-white shadow-xl">
+                <h3 className="text-2xl font-bold">{expertisePathsData.customTraining.title}</h3>
+                <p className="mt-3 text-gray-100 max-w-2xl mx-auto">{expertisePathsData.customTraining.description}</p>
+                <Link 
+                  to="/kontakt"
+                  className="inline-block mt-6 bg-white text-brand-blue-dark font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition-all transform hover:scale-105"
+                >
+                  {expertisePathsData.customTraining.cta}
+                </Link>
+              </div>
+            </AnimatedSection>
+          </div>
+        </AnimatedSection>
+
         {/* Expertise Paths Section */}
-        <AnimatedSection className="py-24" id="expertise">
+        <AnimatedSection className="py-24 bg-brand-light-blue" id="expertise">
           <div className="container mx-auto px-6">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-brand-blue-dark">{expertisePathsData.title}</h2>
             <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto text-center">{expertisePathsData.subtitle}</p>
-            
-            <div className="mt-12 grid lg:grid-cols-3 gap-8 items-stretch">
-              {expertisePathsData.workshops.map((workshop: any, index: number) => (
-                <AnimatedSection key={index}>
-                  <HomeWorkshopCard workshop={workshop} />
-                </AnimatedSection>
-              ))}
-            </div>
 
-            <div className="my-16 flex items-center justify-center">
+            <div className="my-12 flex items-center justify-center">
               <div className="flex-grow border-t border-gray-300"></div>
               <span className="flex-shrink mx-4 text-gray-500 font-bold uppercase">{t('or')}</span>
               <div className="flex-grow border-t border-gray-300"></div>
