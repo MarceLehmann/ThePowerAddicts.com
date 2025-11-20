@@ -21,7 +21,10 @@ const EnhancedMeta: React.FC<EnhancedMetaProps> = ({
   noindex = false
 }) => {
   const location = useLocation();
-  const currentUrl = `https://www.thepoweraddicts.com${location.pathname}`;
+  // HashRouter erzeugt URLs wie https://domain/#/pfad – das berücksichtigen
+  const hash = typeof window !== 'undefined' ? window.location.hash : '';
+  const base = 'https://www.thepoweraddicts.com';
+  const currentUrl = `${base}${hash || location.pathname}`;
   const canonical = canonicalUrl || currentUrl;
 
   useEffect(() => {

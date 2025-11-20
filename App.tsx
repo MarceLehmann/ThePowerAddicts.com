@@ -16,6 +16,8 @@ import PartnerPage from './pages/PartnerPage';
 import LegalPage from './pages/LegalPage'; // Import the new LegalPage
 import WorkshopModal from './components/WorkshopModal';
 import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
+import StructuredData from './components/StructuredData';
+import { useTranslation } from './hooks/useTranslation';
 
 const SystemeIoModal: React.FC = () => {
     const { isModalOpen, hideModal, modalType, t } = useLanguage();
@@ -74,6 +76,10 @@ const SystemeIoModal: React.FC = () => {
 };
 
 const AppContent: React.FC = () => {
+  const { t } = useTranslation();
+  const org = t('schemas.organization');
+  const website = t('schemas.website');
+  const persons = t('schemas.persons');
   return (
     <HashRouter>
       <ScrollToTop />
@@ -94,6 +100,12 @@ const AppContent: React.FC = () => {
         </main>
         <Footer />
       </div>
+      {/* Globale Structured-Data: Organization, Website, Personen */}
+      <StructuredData id="org-schema" data={org} />
+      <StructuredData id="website-schema" data={website} />
+      {Array.isArray(persons) && persons.map((p: any, idx: number) => (
+        <StructuredData key={`person-${idx}`} id={`person-schema-${idx}`} data={p} />
+      ))}
       <WorkshopModal />
       <SystemeIoModal />
     </HashRouter>

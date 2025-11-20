@@ -114,6 +114,36 @@ const WorkshopsPage: React.FC = () => {
             </AnimatedSection>
           </div>
         </section>
+
+        {/* Weiterlesen / Interne Verlinkung */}
+        <section className="py-16">
+          <div className="container mx-auto px-6 max-w-5xl">
+            <AnimatedSection>
+              <h2 className="text-2xl md:text-3xl font-bold text-brand-blue-dark text-center">Weiterlesen</h2>
+              <p className="mt-2 text-center text-gray-600">Mehr zu Beratung und vertiefenden Inhalten</p>
+            </AnimatedSection>
+            <div className="mt-8 grid md:grid-cols-3 gap-6">
+              <AnimatedSection>
+                <Link to="/unabhaengige-beratung" className="block bg-white p-6 rounded-xl shadow hover:shadow-lg border border-gray-100 transition-transform hover:-translate-y-1">
+                  <h3 className="text-lg font-semibold text-brand-blue-dark">Unabhängige Power Platform Beratung</h3>
+                  <p className="text-gray-600 mt-2">Audit, Zweitmeinung oder Governance‑Check – objektive MVP‑Expertise.</p>
+                </Link>
+              </AnimatedSection>
+              <AnimatedSection>
+                <Link to="/workshops/power-platform-admin-in-4-wochen" className="block bg-white p-6 rounded-xl shadow hover:shadow-lg border border-gray-100 transition-transform hover:-translate-y-1">
+                  <h3 className="text-lg font-semibold text-brand-blue-dark">Power Platform Admin – Kursdetails</h3>
+                  <p className="text-gray-600 mt-2">Alle Inhalte, Wochenplan und Zertifizierung im Überblick.</p>
+                </Link>
+              </AnimatedSection>
+              <AnimatedSection>
+                <Link to="/erfolgsgeschichten" className="block bg-white p-6 rounded-xl shadow hover:shadow-lg border border-gray-100 transition-transform hover:-translate-y-1">
+                  <h3 className="text-lg font-semibold text-brand-blue-dark">Erfolgsgeschichten</h3>
+                  <p className="text-gray-600 mt-2">Wie Absolventen Karriere, Gehalt und Impact gesteigert haben.</p>
+                </Link>
+              </AnimatedSection>
+            </div>
+          </div>
+        </section>
       </div>
     </>
   );

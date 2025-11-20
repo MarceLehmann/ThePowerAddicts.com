@@ -8,6 +8,7 @@ import { useTranslation } from '../hooks/useTranslation';
 import { useLanguage } from '../contexts/LanguageContext';
 import EnhancedMeta from '../components/EnhancedMeta';
 import StructuredData from '../components/StructuredData';
+import { useLocation } from 'react-router-dom';
 
 const AnimatedSection: React.FC<{children: React.ReactNode, className?: string}> = ({ children, className }) => {
     const { ref, animationClasses } = useScrollAnimation();
@@ -90,6 +91,7 @@ const DeliverableCard: React.FC<{ icon: React.ReactNode; title: string; items: s
 const WorkshopDetailPage: React.FC = () => {
     const { t } = useTranslation();
     const { showModal } = useLanguage();
+    const location = useLocation();
 
     const curriculumWeeks = t('workshopDetail.curriculum.weeks');
     const deliverablesCards = t('workshopDetail.deliverables.cards');
@@ -98,6 +100,29 @@ const WorkshopDetailPage: React.FC = () => {
     const courseSchema = t('schemas.courseDetail');
     const faqSchema = t('schemas.faq');
     const breadcrumbSchema = t('schemas.breadcrumb');
+
+    // Service Schema für Workshop (zusätzlich zu Course)
+    const base = 'https://www.thepoweraddicts.com';
+    const hash = typeof window !== 'undefined' ? window.location.hash : '';
+    const pageUrl = `${base}${hash || location.pathname}`;
+    const workshopServiceSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        serviceType: 'Power Platform Admin Workshop',
+        name: t('workshopDetail.title'),
+        description: meta.description,
+        provider: {
+            '@type': 'Organization',
+            name: 'ThePowerAddicts',
+            sameAs: 'https://www.thepoweraddicts.com'
+        },
+        areaServed: [
+            { '@type': 'Country', name: 'Schweiz' },
+            { '@type': 'Country', name: 'Deutschland' },
+            { '@type': 'Country', name: 'Österreich' }
+        ],
+        url: pageUrl
+    };
 
     return (
         <>
@@ -108,6 +133,7 @@ const WorkshopDetailPage: React.FC = () => {
                 ogImage="https://thepoweraddicts.com/logo.png"
             />
             <StructuredData id="course-detail-schema" data={courseSchema} />
+            <StructuredData id="workshop-service-schema" data={workshopServiceSchema} />
             <StructuredData id="faq-schema" data={faqSchema} />
             <StructuredData id="breadcrumb-schema" data={breadcrumbSchema} />
             <div className="bg-brand-light-bg">

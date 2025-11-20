@@ -162,8 +162,8 @@ export const de = {
   },
   workshops: {
     meta: {
-      title: 'Power Platform Workshop | Power Apps & Power Automate Kurs DACH',
-      description: 'Power Platform Workshop von Microsoft MVPs: Admin-Schulung, Power Apps Kurs, Power Automate Training. Intensive 4-Wochen-Programme mit ThePowerAddicts Zertifizierung für DACH.'
+      title: 'Power Apps Workshop Schweiz | Power Automate Schulung Online',
+      description: 'Microsoft Power Platform Workshops von MVPs: Power Apps Workshop Schweiz, Power Automate Schulung Online und Admin-Kurse. 4-Wochen Programme mit Zertifizierung – inkl. unabhängiger Beratung.'
     },
     hero: {
         title: "Power Platform Workshop: Vom Anfänger zum Expert",

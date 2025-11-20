@@ -8,6 +8,8 @@ interface OptimizedImageProps {
   className?: string;
   priority?: boolean; // für Above-the-fold Bilder
   objectFit?: 'cover' | 'contain' | 'fill';
+  /** optionales explizites Fetch-Priority-Signal für LCP */
+  fetchPriority?: 'high' | 'low' | 'auto';
 }
 
 /**
@@ -24,14 +26,16 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
   height,
   className = '',
   priority = false,
-  objectFit = 'cover'
+  objectFit = 'cover',
+  fetchPriority
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(priority); // priority images load immediately
   const imgRef = useRef<HTMLImageElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (priority || !imgRef.current) return;
+    if (priority || !containerRef.current) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -45,7 +49,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
       }
     );
 
-    observer.observe(imgRef.current);
+    observer.observe(containerRef.current);
 
     return () => {
       observer.disconnect();
@@ -56,6 +60,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
 
   return (
     <div
+      ref={containerRef}
       className={`relative overflow-hidden ${className}`}
       style={{
         width: width ? `${width}px` : '100%',
@@ -63,25 +68,35 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
       }}
     >
       {isInView && (
-        <img
-          ref={imgRef}
-          src={src}
-          alt={alt}
-          loading={priority ? 'eager' : 'lazy'}
-          decoding="async"
-          width={width}
-          height={height}
-          onLoad={() => setIsLoaded(true)}
-          className={`
-            absolute top-0 left-0 w-full h-full
-            transition-opacity duration-500
-            ${isLoaded ? 'opacity-100' : 'opacity-0'}
-            ${objectFit === 'cover' ? 'object-cover' : objectFit === 'contain' ? 'object-contain' : 'object-fill'}
-          `}
-          style={{
-            objectFit,
-          }}
-        />
+        <picture>
+          {/* Versuch von moderneren Formaten auf gleicher URL-Basis */}
+          {/\.(png|jpg|jpeg)$/i.test(src) && (
+            <>
+              <source srcSet={src.replace(/\.(png|jpg|jpeg)$/i, '.avif')} type="image/avif" />
+              <source srcSet={src.replace(/\.(png|jpg|jpeg)$/i, '.webp')} type="image/webp" />
+            </>
+          )}
+          <img
+            ref={imgRef}
+            src={src}
+            alt={alt}
+            loading={priority ? 'eager' : 'lazy'}
+            decoding="async"
+            width={width}
+            height={height}
+            onLoad={() => setIsLoaded(true)}
+            fetchPriority={fetchPriority ? fetchPriority : priority ? 'high' : 'auto'}
+            className={`
+              absolute top-0 left-0 w-full h-full
+              transition-opacity duration-500
+              ${isLoaded ? 'opacity-100' : 'opacity-0'}
+              ${objectFit === 'cover' ? 'object-cover' : objectFit === 'contain' ? 'object-contain' : 'object-fill'}
+            `}
+            style={{
+              objectFit,
+            }}
+          />
+        </picture>
       )}
       
       {/* Placeholder während Bild lädt */}
