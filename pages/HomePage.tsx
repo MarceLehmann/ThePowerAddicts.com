@@ -156,7 +156,7 @@ const HomeWorkshopCard: React.FC<{ workshop: any; isFeatured: boolean }> = ({ wo
                            {t('workshops.regularPrice')}: {workshop.priceNormal} {workshop.currency}
                         </p>
                     </div>
-                    <Link to="/workshops/power-platform-admin-in-4-wochen" className="text-sm font-semibold text-brand-teal hover:underline flex-shrink-0 ml-4">{t('workshops.details')}</Link>
+                    <Link to={workshop.detailLink || "/workshops/power-platform-admin-in-4-wochen"} className="text-sm font-semibold text-brand-teal hover:underline flex-shrink-0 ml-4">{t('workshops.details')}</Link>
                 </div>
                 <CtaButton />
             </div>
@@ -349,7 +349,14 @@ const HomePage: React.FC = () => {
             <div className="mt-12 grid lg:grid-cols-3 gap-8 items-stretch">
               {expertisePathsData.workshops.map((workshop: any, index: number) => (
                 <AnimatedSection key={index}>
-                  <HomeWorkshopCard workshop={workshop} />
+                  <HomeWorkshopCard 
+                    workshop={{
+                      ...workshop,
+                      status: workshop.status === 'waitlist' ? 'waiting-list' : workshop.status,
+                      ctaText: workshop.cta
+                    }} 
+                    isFeatured={index === 0}
+                  />
                 </AnimatedSection>
               ))}
             </div>
