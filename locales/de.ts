@@ -58,10 +58,10 @@ export const de = {
     hero: {
       title1: 'Power Platform Schulung DACH',
       title2: 'von Microsoft MVPs',
-      subtitle: 'Führende Power Platform Schulung in der Schweiz, Deutschland und Österreich. Werden Sie Power Platform Expert in 4 Wochen oder holen Sie sich unabhängige MVP-Beratung für Ihr Unternehmen.',
+      subtitle: 'Führende Power Platform Schulung in der Schweiz, Deutschland und Österreich. Werde Power Platform Expert in 4 Wochen oder hole dir unabhängige MVP-Beratung für dein Unternehmen.',
       nextCourse: 'Nächstes Intensiv-Programm',
-      courseDate: '20. Januar - 14. Februar 2026',
-      courseDetails: '4 Wochen | 3 Live-Sessions pro Woche à 90min',
+      courseDate: 'Januar 2026',
+      courseDetails: '4 Wochen | 4 Live-Sessions à 2 Stunden',
       stats: [
         { value: '300+', label: 'Professionals geschult' },
         { value: '23%', label: 'Ø Gehaltserhöhung' },
@@ -71,39 +71,95 @@ export const de = {
       ctaAllDates: 'Alle Termine'
     },
     upcomingCourses: {
-      title: 'Power Platform Intensiv-Programme',
-      subtitle: 'Wählen Sie Ihren Termin – Alle Kurse 100% online via Microsoft Teams',
+      title: 'Power Platform Workshops',
+      subtitle: 'Wähle deinen Workshop – Alle Kurse 100% online via Microsoft Teams',
       formats: [
         {
           type: 'intensiv',
           name: 'Intensiv-Programm',
-          tagline: 'Power Platform Admin',
-          duration: '4 Wochen (12 Sessions)',
+          tagline: 'Werde Power Platform Admin in 4 Wochen',
+          duration: '4 Wochen (4 Sessions à 2h)',
           participants: 'Max. 12 Personen',
           format: 'Online per Microsoft Teams',
-          schedule: '3x pro Woche, 18:30-20:00 Uhr',
+          schedule: '1x pro Woche, 17:30-19:30 Uhr',
           price: 1290,
           earlyBirdPrice: 990,
           currency: 'CHF',
           dates: [
             {
-              id: 'admin-jan-2026',
-              startDate: '2026-01-20',
-              endDate: '2026-02-14',
-              displayDate: '20. Jan - 14. Feb 2026',
-              time: '18:30 - 20:00 Uhr',
-              status: 'available',
-              spotsLeft: 8,
+              id: 'admin-waitlist',
+              startDate: '2026-01-01',
+              endDate: '2026-01-31',
+              displayDate: 'Januar 2026',
+              time: 'Termin wird bekannt gegeben',
+              status: 'waitlist',
               featured: true
-            },
+            }
+          ]
+        },
+        {
+          type: 'intensiv',
+          name: 'Intensiv-Programm',
+          tagline: 'Werde Power Automate Profi in 4 Wochen',
+          duration: '4 Wochen (4 Sessions à 2h)',
+          participants: 'Max. 12 Personen',
+          format: 'Online per Microsoft Teams',
+          schedule: '1x pro Woche, 17:30-19:30 Uhr',
+          price: 1290,
+          earlyBirdPrice: 990,
+          currency: 'CHF',
+          dates: [
             {
-              id: 'admin-mar-2026',
-              startDate: '2026-03-09',
-              endDate: '2026-04-03',
-              displayDate: '09. Mär - 03. Apr 2026',
-              time: '18:30 - 20:00 Uhr',
+              id: 'automate-waitlist',
+              startDate: '2026-02-01',
+              endDate: '2026-02-28',
+              displayDate: 'Auf Anfrage',
+              time: 'Termin wird bekannt gegeben',
+              status: 'waitlist'
+            }
+          ]
+        },
+        {
+          type: 'intensiv',
+          name: 'Intensiv-Programm',
+          tagline: 'Werde Power Apps Profi in 4 Wochen',
+          duration: '4 Wochen (4 Sessions à 2h)',
+          participants: 'Max. 12 Personen',
+          format: 'Online per Microsoft Teams',
+          schedule: '1x pro Woche, 17:30-19:30 Uhr',
+          price: 1290,
+          earlyBirdPrice: 990,
+          currency: 'CHF',
+          dates: [
+            {
+              id: 'apps-waitlist',
+              startDate: '2026-03-01',
+              endDate: '2026-03-31',
+              displayDate: 'Auf Anfrage',
+              time: 'Termin wird bekannt gegeben',
+              status: 'waitlist'
+            }
+          ]
+        },
+        {
+          type: 'crashkurs',
+          name: 'Crashkurs',
+          tagline: 'Power Platform Schnelleinstieg',
+          duration: '2 Abende (4 Stunden)',
+          participants: 'Max. 25 Personen',
+          format: 'Online per Microsoft Teams',
+          schedule: '2 Abende, 17:30-19:30 Uhr',
+          price: 199,
+          currency: 'CHF',
+          dates: [
+            {
+              id: 'crashkurs-dec-2025',
+              startDate: '2025-12-09',
+              endDate: '2025-12-11',
+              displayDate: '09. & 11. Dezember 2025',
+              time: '17:30 - 19:30 Uhr',
               status: 'available',
-              spotsLeft: 12
+              featured: true
             }
           ]
         }
@@ -111,52 +167,53 @@ export const de = {
       statusLabels: {
         available: 'Verfügbar',
         limited: 'Wenige Plätze',
-        waitlist: 'Warteliste',
+        waitlist: 'Auf Warteliste eintragen',
         full: 'Ausgebucht'
       },
       spotsLeft: 'Plätze frei',
       perPerson: 'pro Person',
       earlyBird: 'Frühbucher bis',
       register: 'Jetzt anmelden',
+      registerWaitlist: 'Auf Warteliste',
       details: 'Mehr Details'
     },
     expertisePaths: {
       title: 'Zwei Wege zur Power Platform Expertise',
-      subtitle: 'Wählen Sie den Weg, der am besten zu Ihren Zielen passt: intensive Workshops oder massgeschneiderte Beratung.',
+      subtitle: 'Wähle den Weg, der am besten zu deinen Zielen passt: intensive Workshops oder massgeschneiderte Beratung.',
       workshops: [
         {
           id: 'admin',
           modalId: 'waitingListAdmin',
-          title: 'Power Platform Admin – Intensiv-Programm',
-          description: 'Lernen Sie, eine sichere, skalierbare und effiziente Power Platform Umgebung auf Enterprise-Niveau zu verwalten.',
-          cta: 'Jetzt anmelden',
+          title: 'Werde Power Platform Admin in 4 Wochen',
+          description: 'Lerne, eine sichere, skalierbare und effiziente Power Platform Umgebung auf Enterprise-Niveau zu verwalten.',
+          cta: 'Auf die Warteliste',
           detailLink: '/workshops/power-platform-admin-in-4-wochen'
         },
         {
           id: 'automate',
           modalId: 'waitingListAutomate',
-          title: 'Power Automate Profi – Intensiv-Programm',
-          description: 'Automatisieren Sie komplexe Geschäftsprozesse mit fortgeschrittenen Techniken in Power Automate.',
+          title: 'Werde Power Automate Profi in 4 Wochen',
+          description: 'Automatisiere komplexe Geschäftsprozesse mit fortgeschrittenen Techniken in Power Automate.',
           cta: 'Auf die Warteliste',
           detailLink: '#'
         },
         {
           id: 'apps',
           modalId: 'waitingListApps',
-          title: 'Power Apps Profi – Intensiv-Programm',
-          description: 'Entwickeln Sie anspruchsvolle, performante und benutzerfreundliche Business-Anwendungen mit Power Apps.',
+          title: 'Werde Power Apps Profi in 4 Wochen',
+          description: 'Entwickle anspruchsvolle, performante und benutzerfreundliche Business-Anwendungen mit Power Apps.',
           cta: 'Auf die Warteliste',
           detailLink: '#'
         }
       ],
       consulting: {
         title: 'Unabhängige Beratung',
-        description: 'Holen Sie sich objektive MVP-Expertise für Ihre komplexesten Herausforderungen.',
+        description: 'Hole dir objektive MVP-Expertise für deine komplexesten Herausforderungen.',
         cta: 'Beratung anfragen'
       },
       customTraining: {
         title: 'Nicht der passende Termin dabei?',
-        description: 'Kein Problem! Wir bieten auch individuelle Schulungen für Sie oder Ihr Team an. Flexibel nach Ihren Terminen und angepasst an Ihre spezifischen Bedürfnisse.',
+        description: 'Kein Problem! Wir bieten auch individuelle Schulungen für dich oder dein Team an. Flexibel nach deinen Terminen und angepasst an deine spezifischen Bedürfnisse.',
         cta: 'Individuelle Schulung anfragen'
       }
     }

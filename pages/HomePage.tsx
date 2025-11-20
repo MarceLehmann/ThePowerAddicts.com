@@ -39,7 +39,7 @@ const CourseDateCard: React.FC<{
   const statusColors = {
     available: 'bg-green-100 text-green-800 border-green-200',
     limited: 'bg-yellow-100 text-yellow-800 border-yellow-200',
-    waitlist: 'bg-orange-100 text-orange-800 border-orange-200',
+    waitlist: 'bg-brand-teal/10 text-brand-teal border-brand-teal/30',
     full: 'bg-red-100 text-red-800 border-red-200'
   };
 
@@ -52,24 +52,31 @@ const CourseDateCard: React.FC<{
       )}
       <div className="flex items-start justify-between mb-4">
         <div>
-          <h3 className="text-xl font-bold text-brand-blue-dark">{date.displayDate}</h3>
-          <p className="text-sm text-gray-600 mt-1">{format.tagline}</p>
+          <h3 className="text-xl font-bold text-brand-blue-dark">{format.tagline}</h3>
+          <p className="text-sm text-gray-600 mt-1">{date.displayDate}</p>
           <p className="text-sm text-gray-500 mt-1">{date.time}</p>
           <p className="text-xs text-gray-500 mt-1">{format.format}</p>
         </div>
       </div>
-      <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold border ${statusColors[date.status]} mb-4`}>
-        <div className={`w-2 h-2 rounded-full ${date.status === 'available' ? 'bg-green-500' : date.status === 'limited' ? 'bg-yellow-500' : 'bg-gray-400'}`}></div>
-        {statusLabels[date.status]}
-        {date.spotsLeft && date.status === 'available' && ` • ${date.spotsLeft} ${labels.spotsLeft}`}
-      </div>
+      
+      {/* Status Badge nur wenn available/limited */}
+      {(date.status === 'available' || date.status === 'limited') && (
+        <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold border mb-4 ${
+          date.status === 'available' ? 'bg-green-100 text-green-800 border-green-200' : 'bg-yellow-100 text-yellow-800 border-yellow-200'
+        }`}>
+          <div className={`w-2 h-2 rounded-full ${date.status === 'available' ? 'bg-green-500' : 'bg-yellow-500'}`}></div>
+          {statusLabels[date.status]}
+          {date.spotsLeft && ` • ${date.spotsLeft} ${labels.spotsLeft}`}
+        </div>
+      )}
+      
       <div className="border-t pt-4 mt-4">
         <div className="flex items-baseline justify-between mb-4">
           <div>
-            {format.earlyBirdPrice && (
-              <p className="text-sm text-green-600 font-bold">CHF {format.earlyBirdPrice}.-</p>
+            {format.earlyBirdPrice && date.status === 'waitlist' && (
+              <p className="text-sm text-green-600 font-bold">Fr\u00fchbucher: CHF {format.earlyBirdPrice}.-</p>
             )}
-            <p className={`${format.earlyBirdPrice ? 'text-sm text-gray-500 line-through' : 'text-2xl font-bold text-brand-blue-dark'}`}>
+            <p className={`${format.earlyBirdPrice && date.status === 'waitlist' ? 'text-sm text-gray-500 line-through' : 'text-2xl font-bold text-brand-blue-dark'}`}>
               CHF {format.price}.-
             </p>
             <p className="text-xs text-gray-500">{labels.perPerson}</p>
@@ -84,7 +91,7 @@ const CourseDateCard: React.FC<{
               : 'bg-gradient-to-r from-brand-teal to-brand-teal-dark text-white hover:scale-105 hover:shadow-lg'
           }`}
         >
-          {date.status === 'full' ? statusLabels.full : labels.register}
+          {date.status === 'full' ? statusLabels.full : date.status === 'waitlist' ? labels.registerWaitlist : labels.register}
         </button>
       </div>
     </div>
@@ -270,7 +277,19 @@ const HomePage: React.FC = () => {
                         format={format}
                         statusLabels={upcomingCourses.statusLabels}
                         labels={upcomingCourses}
-                        onRegister={() => showModal('waitingListAdmin')}
+                        onRegister={() => {
+                          // Route to correct modal based on format type and tagline
+                          if (format.tagline.includes('Admin')) {
+                            showModal('waitingListAdmin');
+                          } else if (format.tagline.includes('Power Apps')) {
+                            showModal('waitingListApps');
+                          } else if (format.tagline.includes('Power Automate')) {
+                            showModal('waitingListAutomate');
+                          } else {
+                            // Crashkurs - use admin modal as fallback
+                            showModal('waitingListAdmin');
+                          }
+                        }}
                       />
                     </AnimatedSection>
                   ))}
