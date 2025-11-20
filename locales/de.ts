@@ -178,32 +178,65 @@ export const de = {
       details: 'Mehr Details'
     },
     expertisePaths: {
-      title: 'Zwei Wege zur Power Platform Expertise',
+      title: 'Verfügbare Expert-Workshops',
       subtitle: 'Wähle den Weg, der am besten zu deinen Zielen passt: intensive Workshops oder massgeschneiderte Beratung.',
       workshops: [
         {
           id: 'admin',
           modalId: 'waitingListAdmin',
           title: 'Werde Power Platform Admin in 4 Wochen',
-          description: 'Lerne, eine sichere, skalierbare und effiziente Power Platform Umgebung auf Enterprise-Niveau zu verwalten.',
+          subtitle: 'Werde zertifizierter Power Platform Administrator',
+          description: 'Strukturiertes 4-Wochen-Intensiv-Programm zum zertifizierten Admin. Von Environment-Setup bis Center of Excellence - alles hands-on.',
+          status: 'waitlist',
+          priceNormal: 1290,
+          priceEarlyBird: 990,
+          currency: 'CHF / EUR',
           cta: 'Auf die Warteliste',
-          detailLink: '/workshops/power-platform-admin-in-4-wochen'
+          detailLink: '/workshops/power-platform-admin-in-4-wochen',
+          features: [
+            'ThePowerAddicts Zertifikat',
+            'Enterprise-Governance',
+            'CoE Dashboard',
+            '100% Praxis-Bezug'
+          ]
         },
         {
           id: 'automate',
           modalId: 'waitingListAutomate',
           title: 'Werde Power Automate Profi in 4 Wochen',
-          description: 'Automatisiere komplexe Geschäftsprozesse mit fortgeschrittenen Techniken in Power Automate.',
+          subtitle: 'Meistere komplexe Automatisierungen',
+          description: 'Ein Deep-Dive in fortgeschrittene Power Automate-Konzepte, von der Fehlerbehandlung bis zur API-Integration.',
+          status: 'waitlist',
+          priceNormal: 1290,
+          priceEarlyBird: 990,
+          currency: 'CHF / EUR',
           cta: 'Auf die Warteliste',
-          detailLink: '#'
+          detailLink: '#',
+          features: [
+            'ThePowerAddicts Zertifikat',
+            'Advanced Error Handling',
+            'API-Integrationen',
+            'Performance-Optimierung'
+          ]
         },
         {
           id: 'apps',
           modalId: 'waitingListApps',
           title: 'Werde Power Apps Profi in 4 Wochen',
-          description: 'Entwickle anspruchsvolle, performante und benutzerfreundliche Business-Anwendungen mit Power Apps.',
+          subtitle: 'Entwickle anspruchsvolle Business-Apps',
+          description: 'Lerne, performante und skalierbare Canvas- und Model-Driven Apps mit Fokus auf erstklassige UX zu bauen.',
+          status: 'waitlist',
+          priceNormal: 1290,
+          priceEarlyBird: 990,
+          currency: 'CHF / EUR',
           cta: 'Auf die Warteliste',
-          detailLink: '#'
+          detailLink: '#',
+          features: [
+            'ThePowerAddicts Zertifikat',
+            'Responsive UI/UX Design',
+            'Dataverse für Profis',
+            'Delegation & Performance'
+          ]
         }
       ],
       consulting: {

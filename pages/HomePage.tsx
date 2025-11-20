@@ -103,7 +103,7 @@ const AnimatedSection: React.FC<{children: React.ReactNode, className?: string, 
     return <section ref={ref} id={id} className={`${className} ${animationClasses}`}>{children}</section>;
 }
 
-const HomeWorkshopCard: React.FC<{ workshop: { id: string; modalId: string; title: string; description: string; cta: string; detailLink: string; } }> = ({ workshop }) => {
+const HomeWorkshopCard: React.FC<{ workshop: any }> = ({ workshop }) => {
     const { showModal } = useLanguage();
     const { t } = useTranslation();
     
@@ -113,26 +113,50 @@ const HomeWorkshopCard: React.FC<{ workshop: { id: string; modalId: string; titl
         apps: <CodeBracketIcon className="w-8 h-8 text-brand-gold" />,
     }
 
+    const StatusBadge = () => {
+      const statusMap = {
+        'waitlist': { text: 'Warteliste', className: 'bg-yellow-100 text-yellow-800' },
+        'available': { text: 'Verfügbar', className: 'bg-green-100 text-green-800' },
+        'full': { text: 'Ausgebucht', className: 'bg-red-100 text-red-800' },
+      };
+      const currentStatus = statusMap[workshop.status as keyof typeof statusMap];
+      return <span className={`inline-block text-xs font-bold px-3 py-1 rounded-full uppercase ${currentStatus.className}`}>{currentStatus.text}</span>;
+    };
+
     return (
-        <div className="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-teal transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 will-change-transform flex flex-col h-full">
-            <div className="flex items-center gap-4">
-                <div className="bg-brand-teal/10 p-3 rounded-full">{icons[workshop.id]}</div>
-                <h3 className="text-2xl font-bold text-brand-blue-dark">{workshop.title}</h3>
+        <div className="bg-white rounded-2xl shadow-lg border-2 border-gray-200 transition-all duration-300 hover:shadow-xl h-full flex flex-col">
+            <div className="p-8 flex-grow">
+                <StatusBadge />
+                <h3 className="text-2xl font-extrabold text-brand-blue-dark mt-2">{workshop.title}</h3>
+                <p className="text-gray-600">{workshop.subtitle}</p>
+                <p className="mt-4 text-gray-700 text-sm">{workshop.description}</p>
+                <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 text-sm">
+                    {workshop.features.map((feature: string, index: number) => (
+                        <div key={index} className="flex items-center gap-2">
+                            <CheckCircleIcon className="w-5 h-5 text-brand-green flex-shrink-0" /> 
+                            {feature}
+                        </div>
+                    ))}
+                </div>
             </div>
-            <p className="mt-4 text-gray-600 flex-grow">{workshop.description}</p>
-            <div className="mt-8 flex flex-col gap-3">
+            <div className="p-8 pt-6 border-t bg-gray-50/70 rounded-b-xl mt-auto">
+                <div className="flex justify-between items-baseline mb-6">
+                    <div>
+                        {workshop.priceEarlyBird && (
+                           <p className="text-sm text-green-600 font-bold">Frühbucher: {workshop.priceEarlyBird} {workshop.currency}</p>
+                        )}
+                        <p className={`${workshop.priceEarlyBird ? 'text-sm text-gray-500 line-through' : 'text-2xl font-bold text-brand-blue-dark'}`}>
+                           Normalpreis: {workshop.priceNormal} {workshop.currency}
+                        </p>
+                    </div>
+                    <Link to={workshop.detailLink} className="text-sm font-semibold text-brand-teal hover:underline flex-shrink-0 ml-4">Details</Link>
+                </div>
                 <button 
-                    onClick={() => showModal(workshop.modalId as any)} 
-                    className="w-full bg-gradient-to-r from-brand-teal to-brand-teal-dark text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-brand-glow"
+                    onClick={() => showModal(workshop.modalId)}
+                    className="w-full bg-gradient-to-r from-brand-gold to-yellow-500 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                 >
                     {workshop.cta}
                 </button>
-                <Link 
-                    to={workshop.detailLink} 
-                    className="text-center text-sm font-semibold text-brand-teal hover:underline"
-                >
-                    {t('workshops.details')}
-                </Link>
             </div>
         </div>
     );
@@ -319,7 +343,15 @@ const HomePage: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-center text-brand-blue-dark">{expertisePathsData.title}</h2>
             <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto text-center">{expertisePathsData.subtitle}</p>
 
-            <div className="my-12 flex items-center justify-center">
+            <div className="mt-12 grid lg:grid-cols-3 gap-8 items-stretch">
+              {expertisePathsData.workshops.map((workshop: any, index: number) => (
+                <AnimatedSection key={index}>
+                  <HomeWorkshopCard workshop={workshop} />
+                </AnimatedSection>
+              ))}
+            </div>
+
+            <div className="my-16 flex items-center justify-center">
               <div className="flex-grow border-t border-gray-300"></div>
               <span className="flex-shrink mx-4 text-gray-500 font-bold uppercase">{t('or')}</span>
               <div className="flex-grow border-t border-gray-300"></div>
