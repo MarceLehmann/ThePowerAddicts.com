@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
             <h4 className="font-semibold tracking-wider uppercase text-gray-300">{t('footer.nav')}</h4>
             <ul className="mt-4 space-y-2 text-gray-300">
               <li><Link to="/ueber-uns" className="hover:text-brand-teal transition-colors">{t('footer.navLinks.about')}</Link></li>
-              <li><Link to="/workshops" className="hover:text-brand-teal transition-colors">{t('footer.navLinks.workshops')}</Link></li>
+              <li><a href="/#all-workshops" className="hover:text-brand-teal transition-colors">{t('footer.navLinks.workshops')}</a></li>
               <li><Link to="/unabhaengige-beratung" className="hover:text-brand-teal transition-colors">{t('footer.navLinks.consulting')}</Link></li>
               <li><Link to="/erfolgsgeschichten" className="hover:text-brand-teal transition-colors">{t('footer.navLinks.success')}</Link></li>
               <li><Link to="/partner" className="hover:text-brand-teal transition-colors">{t('footer.navLinks.partner')}</Link></li>

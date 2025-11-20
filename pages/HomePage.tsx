@@ -169,6 +169,7 @@ const HomePage: React.FC = () => {
   const heroStats: Stat[] = t('home.hero.stats');
   const expertisePathsData = t('home.expertisePaths');
   const upcomingCourses = t('home.upcomingCourses');
+  const workshops = t('workshops.list');
   const meta = t('home.meta');
   const orgSchema = t('schemas.organization');
   const websiteSchema = t('schemas.website');
@@ -243,12 +244,12 @@ const HomePage: React.FC = () => {
                 >
                   {t('home.hero.ctaWorkshops')}
                 </button>
-                <Link 
-                  to="/workshops" 
+                <a 
+                  href="#all-workshops" 
                   className="w-full sm:w-auto text-brand-teal font-semibold hover:underline"
                 >
                   {t('home.hero.ctaAllDates')}
-                </Link>
+                </a>
               </div>
             </div>
 
@@ -373,6 +374,75 @@ const HomePage: React.FC = () => {
                 </div>
               </div>
             </AnimatedSection>
+          </div>
+        </AnimatedSection>
+
+        {/* Alle Workshops Section */}
+        <AnimatedSection className="py-24" id="all-workshops">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-brand-blue-dark mb-12">{t('workshops.available')}</h2>
+            <div className="grid lg:grid-cols-2 gap-8 items-stretch">
+                {workshops.map((workshop, index) => (
+                    <AnimatedSection key={workshop.id}>
+                        <HomeWorkshopCard 
+                            workshop={workshop} 
+                            isFeatured={index === 0}
+                        />
+                    </AnimatedSection>
+                ))}
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Certification Section */}
+        <AnimatedSection className="py-24 bg-brand-light-blue">
+          <div className="container mx-auto px-6">
+            <div className="flex flex-col lg:flex-row items-center gap-12">
+                <div className="lg:w-1/2">
+                    <h2 className="text-3xl md:text-4xl font-bold text-brand-blue-dark">{t('workshops.certification.title')}</h2>
+                    <p className="mt-4 text-gray-600 leading-relaxed">{t('workshops.certification.text')}</p>
+                    <ul className="mt-6 space-y-3">
+                      {t('workshops.certification.features').map((feature: string) => (
+                        <li key={feature} className="flex items-start gap-3"><CheckCircleIcon className="w-6 h-6 text-brand-green flex-shrink-0" />{feature}</li>
+                      ))}
+                    </ul>
+                </div>
+                <div className="lg:w-1/2 w-full">
+                    <div className="bg-white p-6 rounded-lg shadow-2xl transform lg:rotate-3 border-2 border-brand-gold transition-transform hover:rotate-0 hover:scale-105 will-change-transform">
+                        <p className="text-sm font-bold text-brand-teal tracking-widest uppercase">{t('workshops.certification.certTitle')}</p>
+                        <h4 className="text-3xl font-extrabold text-brand-blue-dark mt-4">ThePowerAddicts</h4>
+                         <div className="mt-8 border-t pt-4 flex justify-between items-center">
+                            <div>
+                                <p className="text-xs text-gray-500">{t('workshops.certification.certExpert')}</p>
+                                <p className="text-xs text-gray-500">{t('workshops.certification.certIssuedBy')}</p>
+                            </div>
+                            <CertificateIcon className="w-16 h-16 text-brand-gold" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Weiterlesen / Interne Verlinkung */}
+        <AnimatedSection className="py-16">
+          <div className="container mx-auto px-6 max-w-5xl">
+            <h2 className="text-2xl md:text-3xl font-bold text-brand-blue-dark text-center">Weiterlesen</h2>
+            <p className="mt-2 text-center text-gray-600">Mehr zu Beratung und vertiefenden Inhalten</p>
+            <div className="mt-8 grid md:grid-cols-3 gap-6">
+              <Link to="/unabhaengige-beratung" className="block bg-white p-6 rounded-xl shadow hover:shadow-lg border border-gray-100 transition-transform hover:-translate-y-1">
+                <h3 className="text-lg font-semibold text-brand-blue-dark">Unabhängige Power Platform Beratung</h3>
+                <p className="text-gray-600 mt-2">Audit, Zweitmeinung oder Governance‑Check – objektive MVP‑Expertise.</p>
+              </Link>
+              <Link to="/workshops/power-platform-admin-in-4-wochen" className="block bg-white p-6 rounded-xl shadow hover:shadow-lg border border-gray-100 transition-transform hover:-translate-y-1">
+                <h3 className="text-lg font-semibold text-brand-blue-dark">Power Platform Admin – Kursdetails</h3>
+                <p className="text-gray-600 mt-2">Alle Inhalte, Wochenplan und Zertifizierung im Überblick.</p>
+              </Link>
+              <Link to="/erfolgsgeschichten" className="block bg-white p-6 rounded-xl shadow hover:shadow-lg border border-gray-100 transition-transform hover:-translate-y-1">
+                <h3 className="text-lg font-semibold text-brand-blue-dark">Erfolgsgeschichten</h3>
+                <p className="text-gray-600 mt-2">Lerne unsere Absolvent:innen und ihren Weg zum Erfolg kennen.</p>
+              </Link>
+            </div>
           </div>
         </AnimatedSection>
       </div>

@@ -144,7 +144,7 @@ const WorkshopDetailPage: React.FC = () => {
                 {/* Sub-navigation breadcrumb */}
                 <div className="bg-brand-light-bg border-b">
                     <div className="container mx-auto px-6 py-2 text-sm text-gray-500">
-                        <Link to="/workshops" className="hover:text-brand-teal">Workshops</Link>
+                        <Link to="/" className="hover:text-brand-teal">Workshops</Link>
                         <span className="mx-2">/</span>
                         <span>{t('workshopDetail.nav')}</span>
                     </div>

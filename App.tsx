@@ -7,13 +7,12 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
-import WorkshopsPage from './pages/WorkshopsPage';
 import WorkshopDetailPage from './pages/WorkshopDetailPage';
 import ConsultingPage from './pages/ConsultingPage';
 import SuccessStoriesPage from './pages/SuccessStoriesPage';
 import ContactPage from './pages/ContactPage';
 import PartnerPage from './pages/PartnerPage';
-import LegalPage from './pages/LegalPage'; // Import the new LegalPage
+import LegalPage from './pages/LegalPage';
 import WorkshopModal from './components/WorkshopModal';
 import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
 import StructuredData from './components/StructuredData';
@@ -89,7 +88,6 @@ const AppContent: React.FC = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/ueber-uns" element={<AboutPage />} />
-            <Route path="/workshops" element={<WorkshopsPage />} />
             <Route path="/workshops/power-platform-admin-in-4-wochen" element={<WorkshopDetailPage />} />
             <Route path="/unabhaengige-beratung" element={<ConsultingPage />} />
             <Route path="/erfolgsgeschichten" element={<SuccessStoriesPage />} />
