@@ -103,28 +103,35 @@ const AnimatedSection: React.FC<{children: React.ReactNode, className?: string, 
     return <section ref={ref} id={id} className={`${className} ${animationClasses}`}>{children}</section>;
 }
 
-const HomeWorkshopCard: React.FC<{ workshop: any }> = ({ workshop }) => {
+const HomeWorkshopCard: React.FC<{ workshop: any; isFeatured: boolean }> = ({ workshop, isFeatured }) => {
     const { showModal } = useLanguage();
     const { t } = useTranslation();
-    
-    const icons: Record<string, React.ReactNode> = {
-        admin: <ShieldCheckIcon className="w-8 h-8 text-brand-teal" />,
-        automate: <RocketLaunchIcon className="w-8 h-8 text-brand-purple" />,
-        apps: <CodeBracketIcon className="w-8 h-8 text-brand-gold" />,
-    }
 
     const StatusBadge = () => {
       const statusMap = {
-        'waitlist': { text: 'Warteliste', className: 'bg-yellow-100 text-yellow-800' },
-        'available': { text: 'Verfügbar', className: 'bg-green-100 text-green-800' },
-        'full': { text: 'Ausgebucht', className: 'bg-red-100 text-red-800' },
+        'waiting-list': { text: t('workshops.status.waiting-list'), className: 'bg-yellow-100 text-yellow-800' },
+        'available': { text: t('workshops.status.available'), className: 'bg-green-100 text-green-800' },
+        'full': { text: t('workshops.status.full'), className: 'bg-red-100 text-red-800' },
       };
       const currentStatus = statusMap[workshop.status as keyof typeof statusMap];
       return <span className={`inline-block text-xs font-bold px-3 py-1 rounded-full uppercase ${currentStatus.className}`}>{currentStatus.text}</span>;
     };
 
+    const CtaButton = () => {
+        switch (workshop.status) {
+            case 'waiting-list':
+                return <button onClick={() => showModal(workshop.modalId as any)} className="w-full bg-gradient-to-r from-brand-gold to-yellow-500 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg">{workshop.ctaText}</button>;
+            case 'available':
+                return <button onClick={() => showModal(workshop.modalId as any)} className="block text-center w-full bg-gradient-to-r from-brand-teal to-brand-teal-dark text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg">{workshop.ctaText}</button>;
+            case 'full':
+                 return <button className="w-full bg-gray-300 text-gray-600 font-bold py-3 px-6 rounded-full cursor-not-allowed" disabled>{t('workshops.status.full')}</button>;
+            default:
+                return null;
+        }
+    };
+
     return (
-        <div className="bg-white rounded-2xl shadow-lg border-2 border-gray-200 transition-all duration-300 hover:shadow-xl h-full flex flex-col">
+        <div className={`bg-white rounded-2xl shadow-lg border-2 h-full flex flex-col ${isFeatured ? 'border-brand-teal transform lg:scale-105 shadow-2xl' : 'border-gray-200'} transition-all duration-300 hover:shadow-xl`}>
             <div className="p-8 flex-grow">
                 <StatusBadge />
                 <h3 className="text-2xl font-extrabold text-brand-blue-dark mt-2">{workshop.title}</h3>
@@ -143,20 +150,15 @@ const HomeWorkshopCard: React.FC<{ workshop: any }> = ({ workshop }) => {
                 <div className="flex justify-between items-baseline mb-6">
                     <div>
                         {workshop.priceEarlyBird && (
-                           <p className="text-sm text-green-600 font-bold">Frühbucher: {workshop.priceEarlyBird} {workshop.currency}</p>
+                           <p className="text-sm text-green-600 font-bold">{t('workshops.earlyBird')}: {workshop.priceEarlyBird} {workshop.currency}</p>
                         )}
                         <p className={`${workshop.priceEarlyBird ? 'text-sm text-gray-500 line-through' : 'text-2xl font-bold text-brand-blue-dark'}`}>
-                           Normalpreis: {workshop.priceNormal} {workshop.currency}
+                           {t('workshops.regularPrice')}: {workshop.priceNormal} {workshop.currency}
                         </p>
                     </div>
-                    <Link to={workshop.detailLink} className="text-sm font-semibold text-brand-teal hover:underline flex-shrink-0 ml-4">Details</Link>
+                    <Link to="/workshops/power-platform-admin-in-4-wochen" className="text-sm font-semibold text-brand-teal hover:underline flex-shrink-0 ml-4">{t('workshops.details')}</Link>
                 </div>
-                <button 
-                    onClick={() => showModal(workshop.modalId)}
-                    className="w-full bg-gradient-to-r from-brand-gold to-yellow-500 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
-                >
-                    {workshop.cta}
-                </button>
+                <CtaButton />
             </div>
         </div>
     );
