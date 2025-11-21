@@ -74,7 +74,7 @@ const CourseDateCard: React.FC<{
         <div className="flex items-baseline justify-between mb-4">
           <div>
             {format.earlyBirdPrice && date.status === 'waitlist' && (
-              <p className="text-sm text-green-600 font-bold">Fr\u00fchbucher: CHF {format.earlyBirdPrice}.-</p>
+              <p className="text-sm text-green-600 font-bold">{labels.earlyBird}: CHF {format.earlyBirdPrice}.-</p>
             )}
             <p className={`${format.earlyBirdPrice && date.status === 'waitlist' ? 'text-sm text-gray-500 line-through' : 'text-2xl font-bold text-brand-blue-dark'}`}>
               CHF {format.price}.-

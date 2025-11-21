@@ -154,10 +154,9 @@ export const de = {
               id: 'powerapps-einstieg-dec-2025',
               startDate: '2025-12-09',
               endDate: '2025-12-11',
-              displayDate: '09. & 11. Dezember 2025',
-              time: '17:30 - 19:30 Uhr',
-              status: 'available',
-              featured: true
+              displayDate: 'Auf Anfrage',
+              time: 'Termin wird bekannt gegeben',
+              status: 'waitlist'
             }
           ]
         },
