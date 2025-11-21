@@ -140,24 +140,87 @@ export const de = {
           ]
         },
         {
-          type: 'crashkurs',
-          name: 'Crashkurs',
-          tagline: 'Power Platform Schnelleinstieg',
+          type: 'schnelleinstieg',
+          name: 'Schnelleinstieg',
+          tagline: 'Power Apps kennenlernen',
           duration: '2 Abende (4 Stunden)',
           participants: 'Max. 25 Personen',
           format: 'Online per Microsoft Teams',
           schedule: '2 Abende, 17:30-19:30 Uhr',
-          price: 199,
+          price: 299,
           currency: 'CHF',
           dates: [
             {
-              id: 'crashkurs-dec-2025',
+              id: 'powerapps-einstieg-dec-2025',
               startDate: '2025-12-09',
               endDate: '2025-12-11',
               displayDate: '09. & 11. Dezember 2025',
               time: '17:30 - 19:30 Uhr',
               status: 'available',
               featured: true
+            }
+          ]
+        },
+        {
+          type: 'schnelleinstieg',
+          name: 'Schnelleinstieg',
+          tagline: 'Power Automate kennenlernen',
+          duration: '2 Abende (4 Stunden)',
+          participants: 'Max. 25 Personen',
+          format: 'Online per Microsoft Teams',
+          schedule: '2 Abende, 17:30-19:30 Uhr',
+          price: 299,
+          currency: 'CHF',
+          dates: [
+            {
+              id: 'powerautomate-einstieg-jan-2026',
+              startDate: '2026-01-13',
+              endDate: '2026-01-15',
+              displayDate: 'Auf Anfrage',
+              time: 'Termin wird bekannt gegeben',
+              status: 'waitlist'
+            }
+          ]
+        },
+        {
+          type: 'fortgeschritten',
+          name: 'Fortgeschritten',
+          tagline: 'Power Apps fortgeschritten',
+          duration: '2 Abende (4 Stunden)',
+          participants: 'Max. 25 Personen',
+          format: 'Online per Microsoft Teams',
+          schedule: '2 Abende, 17:30-19:30 Uhr',
+          price: 399,
+          currency: 'CHF',
+          dates: [
+            {
+              id: 'powerapps-fortgeschritten-feb-2026',
+              startDate: '2026-02-09',
+              endDate: '2026-02-11',
+              displayDate: 'Auf Anfrage',
+              time: 'Termin wird bekannt gegeben',
+              status: 'waitlist'
+            }
+          ]
+        },
+        {
+          type: 'fortgeschritten',
+          name: 'Fortgeschritten',
+          tagline: 'Power Automate fortgeschritten',
+          duration: '2 Abende (4 Stunden)',
+          participants: 'Max. 25 Personen',
+          format: 'Online per Microsoft Teams',
+          schedule: '2 Abende, 17:30-19:30 Uhr',
+          price: 399,
+          currency: 'CHF',
+          dates: [
+            {
+              id: 'powerautomate-fortgeschritten-mar-2026',
+              startDate: '2026-03-09',
+              endDate: '2026-03-11',
+              displayDate: 'Auf Anfrage',
+              time: 'Termin wird bekannt gegeben',
+              status: 'waitlist'
             }
           ]
         }
@@ -192,9 +255,9 @@ export const de = {
           cta: 'Auf die Warteliste',
           detailLink: '/workshops/power-platform-admin-in-4-wochen',
           features: [
+            '30min 1:1 Mentoring',
             'ThePowerAddicts Zertifikat',
-            'Enterprise-Governance',
-            'CoE Dashboard',
+            'Aufzeichnungen & Präsentationen',
             '100% Praxis-Bezug'
           ]
         },
@@ -211,10 +274,10 @@ export const de = {
           cta: 'Auf die Warteliste',
           detailLink: '/workshops/power-automate-profi-in-4-wochen',
           features: [
+            '30min 1:1 Mentoring',
             'ThePowerAddicts Zertifikat',
-            'Advanced Error Handling',
-            'API-Integrationen',
-            'Performance-Optimierung'
+            'Aufzeichnungen & Präsentationen',
+            'API-Integrationen'
           ]
         },
         {
@@ -230,10 +293,10 @@ export const de = {
           cta: 'Auf die Warteliste',
           detailLink: '/workshops/power-apps-profi-in-4-wochen',
           features: [
+            '30min 1:1 Mentoring',
             'ThePowerAddicts Zertifikat',
-            'Responsive UI/UX Design',
-            'Dataverse für Profis',
-            'Delegation & Performance'
+            'Aufzeichnungen & Präsentationen',
+            'Dataverse für Profis'
           ]
         }
       ],
@@ -330,10 +393,10 @@ export const de = {
             currency: 'CHF / EUR',
             ctaText: 'Auf die Warteliste',
             features: [
+                '30min 1:1 Mentoring',
                 'ThePowerAddicts Zertifikat',
-                'Enterprise-Governance',
-                'CoE Dashboard',
-                '100% Praxis-Bezug',
+                'Aufzeichnungen & Präsentationen',
+                '100% Praxis-Bezug'
             ]
         },
         {
@@ -348,10 +411,10 @@ export const de = {
             currency: 'CHF / EUR',
             ctaText: 'Auf die Warteliste',
             features: [
+                '30min 1:1 Mentoring',
                 'ThePowerAddicts Zertifikat',
-                'Advanced Error Handling',
-                'API-Integrationen',
-                'Performance-Optimierung',
+                'Aufzeichnungen & Präsentationen',
+                'API-Integrationen'
             ]
         },
         {
@@ -366,10 +429,10 @@ export const de = {
             currency: 'CHF / EUR',
             ctaText: 'Auf die Warteliste',
             features: [
+                '30min 1:1 Mentoring',
                 'ThePowerAddicts Zertifikat',
-                'Responsive UI/UX Design',
-                'Dataverse für Profis',
-                'Delegation & Performance',
+                'Aufzeichnungen & Präsentationen',
+                'Dataverse für Profis'
             ]
         }
     ],

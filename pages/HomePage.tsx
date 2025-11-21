@@ -233,27 +233,6 @@ const HomePage: React.FC = () => {
             <h2 className="mt-4 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               {t('home.hero.subtitle')}
             </h2>
-            
-            {/* Next Course Highlight */}
-            <div className="mt-8 bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-xl max-w-2xl mx-auto border-2 border-brand-teal">
-              <p className="text-sm font-semibold text-brand-teal uppercase tracking-wide">{t('home.hero.nextCourse')}</p>
-              <p className="text-2xl md:text-3xl font-bold text-brand-blue-dark mt-2">{t('home.hero.courseDate')}</p>
-              <p className="text-gray-600 mt-1">{t('home.hero.courseDetails')}</p>
-              <div className="mt-4 flex flex-col sm:flex-row justify-center items-center gap-3">
-                <button 
-                  onClick={() => showModal('waitingListAdmin')}
-                  className="w-full sm:w-auto bg-gradient-to-r from-brand-teal to-brand-teal-dark text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-brand-glow"
-                >
-                  {t('home.hero.ctaWorkshops')}
-                </button>
-                <a 
-                  href="#all-workshops" 
-                  className="w-full sm:w-auto text-brand-teal font-semibold hover:underline"
-                >
-                  {t('home.hero.ctaAllDates')}
-                </a>
-              </div>
-            </div>
 
             <div className="mt-8 grid grid-cols-2 gap-8 max-w-lg mx-auto">
                 {heroStats.map(stat => <StatCard key={stat.label} stat={stat} />)}
@@ -329,47 +308,39 @@ const HomePage: React.FC = () => {
 
             {/* Crashkurs Bereich */}
             {(() => {
-              const crashkursFormat = upcomingCourses.formats.find((f: any) => f.type === 'crashkurs');
-              if (crashkursFormat) {
+              const schnellFormats = upcomingCourses.formats.filter((f: any) => f.type === 'schnelleinstieg' || f.type === 'fortgeschritten');
+              if (schnellFormats.length > 0) {
                 return (
                   <div className="mt-16">
-                    {/* Crashkurs Banner mit Zielen */}
+                    {/* Schnelleinstieg & Fortgeschritten Banner */}
                     <div className="bg-brand-gold/10 p-6 rounded-xl mb-6 border-2 border-brand-gold/30">
                       <div className="text-center mb-6">
-                        <h3 className="text-2xl font-bold text-brand-blue-dark">{crashkursFormat.name}</h3>
-                        <p className="text-gray-600 mt-2">Idealer Einstieg in die Power Platform</p>
+                        <h3 className="text-2xl font-bold text-brand-blue-dark">Schnelleinstieg & Fortgeschritten</h3>
+                        <p className="text-gray-600 mt-2">Kompakte 2-Abend-Kurse für schnelles Lernen</p>
                       </div>
                       
-                      {/* 4 Ziele Grid */}
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
-                        <div className="bg-white p-4 rounded-lg shadow-sm border border-brand-teal/20">
-                          <p className="font-bold text-brand-blue-dark text-center">Power Apps kennenlernen</p>
-                        </div>
-                        <div className="bg-white p-4 rounded-lg shadow-sm border border-brand-teal/20">
-                          <p className="font-bold text-brand-blue-dark text-center">Power Automate kennenlernen</p>
-                        </div>
-                        <div className="bg-white p-4 rounded-lg shadow-sm border border-brand-teal/20">
-                          <p className="font-bold text-brand-blue-dark text-center">Power Automate fortgeschritten</p>
-                        </div>
-                        <div className="bg-white p-4 rounded-lg shadow-sm border border-brand-teal/20">
-                          <p className="font-bold text-brand-blue-dark text-center">Power Apps fortgeschritten</p>
-                        </div>
+                      {/* Info */}
+                      <div className="text-center text-sm text-gray-600 mb-4">
+                        <p>Perfekt für den Einstieg oder zur Vertiefung deiner Power Platform Skills</p>
                       </div>
                     </div>
                     
-                    {/* Crashkurs Date Cards */}
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {crashkursFormat.dates.map((date: CourseDate, dateIdx: number) => (
-                        <AnimatedSection key={dateIdx}>
-                          <CourseDateCard 
-                            date={date}
-                            format={crashkursFormat}
-                            statusLabels={upcomingCourses.statusLabels}
-                            labels={upcomingCourses}
-                            onRegister={() => showModal('waitingListAdmin')}
-                          />
-                        </AnimatedSection>
-                      ))}
+                    {/* Kurz-Kurs Cards */}
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                      {schnellFormats.map((format: any, formatIdx: number) => {
+                        const date = format.dates[0];
+                        return (
+                          <AnimatedSection key={formatIdx}>
+                            <CourseDateCard 
+                              date={date}
+                              format={format}
+                              statusLabels={upcomingCourses.statusLabels}
+                              labels={upcomingCourses}
+                              onRegister={() => showModal('waitingListAdmin')}
+                            />
+                          </AnimatedSection>
+                        );
+                      })}
                     </div>
                   </div>
                 );
@@ -393,33 +364,9 @@ const HomePage: React.FC = () => {
           </div>
         </AnimatedSection>
 
-        {/* Expertise Paths Section */}
-        <AnimatedSection className="py-24 bg-brand-light-blue" id="expertise">
+        {/* Beratung CTA */}
+        <AnimatedSection className="py-24 bg-brand-light-blue">
           <div className="container mx-auto px-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-brand-blue-dark">{expertisePathsData.title}</h2>
-            <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto text-center">{expertisePathsData.subtitle}</p>
-
-            <div className="mt-12 grid lg:grid-cols-3 gap-8 items-stretch">
-              {expertisePathsData.workshops.map((workshop: any, index: number) => (
-                <AnimatedSection key={index}>
-                  <HomeWorkshopCard 
-                    workshop={{
-                      ...workshop,
-                      status: workshop.status === 'waitlist' ? 'waiting-list' : workshop.status,
-                      ctaText: workshop.cta
-                    }} 
-                    isFeatured={index === 0}
-                  />
-                </AnimatedSection>
-              ))}
-            </div>
-
-            <div className="my-16 flex items-center justify-center">
-              <div className="flex-grow border-t border-gray-300"></div>
-              <span className="flex-shrink mx-4 text-gray-500 font-bold uppercase">{t('or')}</span>
-              <div className="flex-grow border-t border-gray-300"></div>
-            </div>
-
             <AnimatedSection>
               <div className="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-brand-gold transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 will-change-transform max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
                 <div className="flex-shrink-0 bg-brand-gold/10 p-4 rounded-full">
@@ -436,23 +383,6 @@ const HomePage: React.FC = () => {
                 </div>
               </div>
             </AnimatedSection>
-          </div>
-        </AnimatedSection>
-
-        {/* Alle Workshops Section */}
-        <AnimatedSection className="py-24" id="all-workshops">
-          <div className="container mx-auto px-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-brand-blue-dark mb-12">{t('workshops.available')}</h2>
-            <div className="grid lg:grid-cols-2 gap-8 items-stretch">
-                {workshops.map((workshop, index) => (
-                    <AnimatedSection key={workshop.id}>
-                        <HomeWorkshopCard 
-                            workshop={workshop} 
-                            isFeatured={index === 0}
-                        />
-                    </AnimatedSection>
-                ))}
-            </div>
           </div>
         </AnimatedSection>
 
