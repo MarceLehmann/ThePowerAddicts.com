@@ -88,7 +88,7 @@ export const de = {
               id: 'admin-waitlist',
               startDate: '2026-01-01',
               endDate: '2026-01-31',
-              displayDate: 'Januar 2026',
+              displayDate: 'Auf Anfrage',
               time: 'Termin wird bekannt gegeben',
               status: 'waitlist',
               featured: true
