@@ -707,7 +707,7 @@ export const de = {
     },
     potential: {
         title: "Das Gehaltspotenzial ist enorm",
-        text: "Ein Jahreslohn im sechsstelligen Bereich ist für ausgebildete Power Platform Administratoren nicht die Ausnahme, sondern die Regel. Natürlich hängt es von Branche und Unternehmen ab, aber die Expertise ist ein <span class=\"font-bold text-brand-gold\">enormer Karriere-Booster</span>."
+        text: "Ein Jahreslohn im sechsstelligen Bereich ist für ausgebildete Power Platform Administratoren nicht die Ausnahme, sondern die Regel. Power Platform Maker erreichen den hohen fünfstelligen Bereich. Natürlich hängt es von Branche und Unternehmen ab, aber die Expertise ist ein <span class=\"font-bold text-brand-gold\">enormer Karriere-Booster</span>."
     },
     testimonialsTitle: "Was unsere Absolventen sagen"
   },
