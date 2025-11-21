@@ -267,62 +267,115 @@ const HomePage: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-center text-brand-blue-dark">{upcomingCourses.title}</h2>
             <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto text-center">{upcomingCourses.subtitle}</p>
             
-            {upcomingCourses.formats.map((format: any, formatIdx: number) => (
-              <div key={formatIdx} className="mt-12">
-                <div className="bg-brand-light-blue p-6 rounded-xl mb-6">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                    <div>
-                      <h3 className="text-2xl font-bold text-brand-blue-dark">{format.name}</h3>
-                      <p className="text-gray-600 mt-1">{format.tagline}</p>
+            {/* Intensivprogramme Banner & Cards */}
+            {(() => {
+              const intensivFormats = upcomingCourses.formats.filter((f: any) => f.type === 'intensiv');
+              if (intensivFormats.length > 0) {
+                return (
+                  <div className="mt-12">
+                    {/* Banner nur mit generischen Infos */}
+                    <div className="bg-brand-light-blue p-6 rounded-xl mb-6">
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                        <div>
+                          <h3 className="text-2xl font-bold text-brand-blue-dark">Intensiv-Programme</h3>
+                        </div>
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+                          <div>
+                            <p className="text-gray-500 font-semibold">Dauer</p>
+                            <p className="text-brand-blue-dark font-bold">4 Wochen</p>
+                          </div>
+                          <div>
+                            <p className="text-gray-500 font-semibold">Teilnehmer</p>
+                            <p className="text-brand-blue-dark font-bold">Max. 12 Personen</p>
+                          </div>
+                          <div>
+                            <p className="text-gray-500 font-semibold">Format</p>
+                            <p className="text-brand-blue-dark font-bold">Online per Microsoft Teams</p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                      <div>
-                        <p className="text-gray-500 font-semibold">Dauer</p>
-                        <p className="text-brand-blue-dark font-bold">{format.duration}</p>
-                      </div>
-                      <div>
-                        <p className="text-gray-500 font-semibold">Teilnehmer</p>
-                        <p className="text-brand-blue-dark font-bold">{format.participants}</p>
-                      </div>
-                      <div>
-                        <p className="text-gray-500 font-semibold">Format</p>
-                        <p className="text-brand-blue-dark font-bold">{format.format}</p>
-                      </div>
-                      <div>
-                        <p className="text-gray-500 font-semibold">Zeitplan</p>
-                        <p className="text-brand-blue-dark font-bold">{format.schedule}</p>
-                      </div>
+                    
+                    {/* 3 Intensivprogramme nebeneinander */}
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {intensivFormats.map((format: any, formatIdx: number) => {
+                        const date = format.dates[0];
+                        return (
+                          <AnimatedSection key={formatIdx}>
+                            <CourseDateCard 
+                              date={date}
+                              format={format}
+                              statusLabels={upcomingCourses.statusLabels}
+                              labels={upcomingCourses}
+                              onRegister={() => {
+                                if (format.tagline.includes('Admin')) {
+                                  showModal('waitingListAdmin');
+                                } else if (format.tagline.includes('Power Apps')) {
+                                  showModal('waitingListApps');
+                                } else if (format.tagline.includes('Power Automate')) {
+                                  showModal('waitingListAutomate');
+                                }
+                              }}
+                            />
+                          </AnimatedSection>
+                        );
+                      })}
                     </div>
                   </div>
-                </div>
-                
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {format.dates.map((date: CourseDate, dateIdx: number) => (
-                    <AnimatedSection key={dateIdx}>
-                      <CourseDateCard 
-                        date={date}
-                        format={format}
-                        statusLabels={upcomingCourses.statusLabels}
-                        labels={upcomingCourses}
-                        onRegister={() => {
-                          // Route to correct modal based on format type and tagline
-                          if (format.tagline.includes('Admin')) {
-                            showModal('waitingListAdmin');
-                          } else if (format.tagline.includes('Power Apps')) {
-                            showModal('waitingListApps');
-                          } else if (format.tagline.includes('Power Automate')) {
-                            showModal('waitingListAutomate');
-                          } else {
-                            // Crashkurs - use admin modal as fallback
-                            showModal('waitingListAdmin');
-                          }
-                        }}
-                      />
-                    </AnimatedSection>
-                  ))}
-                </div>
-              </div>
-            ))}
+                );
+              }
+              return null;
+            })()}
+
+            {/* Crashkurs Bereich */}
+            {(() => {
+              const crashkursFormat = upcomingCourses.formats.find((f: any) => f.type === 'crashkurs');
+              if (crashkursFormat) {
+                return (
+                  <div className="mt-16">
+                    {/* Crashkurs Banner mit Zielen */}
+                    <div className="bg-brand-gold/10 p-6 rounded-xl mb-6 border-2 border-brand-gold/30">
+                      <div className="text-center mb-6">
+                        <h3 className="text-2xl font-bold text-brand-blue-dark">{crashkursFormat.name}</h3>
+                        <p className="text-gray-600 mt-2">Idealer Einstieg in die Power Platform</p>
+                      </div>
+                      
+                      {/* 4 Ziele Grid */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+                        <div className="bg-white p-4 rounded-lg shadow-sm border border-brand-teal/20">
+                          <p className="font-bold text-brand-blue-dark text-center">Power Apps kennenlernen</p>
+                        </div>
+                        <div className="bg-white p-4 rounded-lg shadow-sm border border-brand-teal/20">
+                          <p className="font-bold text-brand-blue-dark text-center">Power Automate kennenlernen</p>
+                        </div>
+                        <div className="bg-white p-4 rounded-lg shadow-sm border border-brand-teal/20">
+                          <p className="font-bold text-brand-blue-dark text-center">Power Automate fortgeschritten</p>
+                        </div>
+                        <div className="bg-white p-4 rounded-lg shadow-sm border border-brand-teal/20">
+                          <p className="font-bold text-brand-blue-dark text-center">Power Apps fortgeschritten</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Crashkurs Date Cards */}
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {crashkursFormat.dates.map((date: CourseDate, dateIdx: number) => (
+                        <AnimatedSection key={dateIdx}>
+                          <CourseDateCard 
+                            date={date}
+                            format={crashkursFormat}
+                            statusLabels={upcomingCourses.statusLabels}
+                            labels={upcomingCourses}
+                            onRegister={() => showModal('waitingListAdmin')}
+                          />
+                        </AnimatedSection>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+              return null;
+            })()}
 
             {/* Custom Training CTA */}
             <AnimatedSection className="mt-16">
@@ -403,6 +456,38 @@ const HomePage: React.FC = () => {
           </div>
         </AnimatedSection>
 
+        {/* Success Stories Section */}
+        <AnimatedSection className="py-24 bg-white" id="erfolgsgeschichten">
+          <div className="container mx-auto px-6">
+            <AnimatedSection>
+              <h2 className="text-3xl md:text-4xl font-bold text-center text-brand-blue-dark">{t('success.metrics.title')}</h2>
+              <p className="text-center mt-2 text-gray-500 text-sm">{t('success.metrics.subtitle')}</p>
+            </AnimatedSection>
+            <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              {t('success.metrics.items').map((metric: any) => (
+                <AnimatedSection key={metric.label}>
+                  <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-brand-teal text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 will-change-transform">
+                    <p className="text-5xl font-extrabold text-brand-teal">{metric.value}</p>
+                    <h3 className="text-xl font-bold text-brand-blue-dark mt-2">{metric.label}</h3>
+                    <p className="text-gray-600 mt-1 text-sm">{metric.description}</p>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
+            <AnimatedSection className="mt-16">
+              <div className="relative bg-gradient-to-r from-brand-blue-dark to-brand-teal text-white p-8 md:p-12 rounded-2xl shadow-2xl max-w-4xl mx-auto">
+                <svg className="absolute top-8 left-8 w-16 h-16 text-white/20" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+                  <path d="M9.33,12.42,7.18,10.27,4.83,16.85,11.41,19.2l2.15-2.15L9.33,12.42ZM22.67,12.42,20.52,10.27,18.17,16.85,24.75,19.2l2.15-2.15L22.67,12.42Z" />
+                </svg>
+                <div className="relative text-center">
+                  <h2 className="text-2xl md:text-3xl font-bold">{t('success.potential.title')}</h2>
+                  <p className="mt-4 text-lg md:text-xl text-gray-200 leading-relaxed" dangerouslySetInnerHTML={{ __html: t('success.potential.text')}}></p>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+        </AnimatedSection>
+
         {/* Certification Section */}
         <AnimatedSection className="py-24 bg-brand-light-blue">
           <div className="container mx-auto px-6">
@@ -447,10 +532,10 @@ const HomePage: React.FC = () => {
                 <h3 className="text-lg font-semibold text-brand-blue-dark">Power Platform Admin – Kursdetails</h3>
                 <p className="text-gray-600 mt-2">Alle Inhalte, Wochenplan und Zertifizierung im Überblick.</p>
               </Link>
-              <Link to="/erfolgsgeschichten" className="block bg-white p-6 rounded-xl shadow hover:shadow-lg border border-gray-100 transition-transform hover:-translate-y-1">
+              <a href="#erfolgsgeschichten" className="block bg-white p-6 rounded-xl shadow hover:shadow-lg border border-gray-100 transition-transform hover:-translate-y-1">
                 <h3 className="text-lg font-semibold text-brand-blue-dark">Erfolgsgeschichten</h3>
                 <p className="text-gray-600 mt-2">Lerne unsere Absolvent:innen und ihren Weg zum Erfolg kennen.</p>
-              </Link>
+              </a>
             </div>
           </div>
         </AnimatedSection>

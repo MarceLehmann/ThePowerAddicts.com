@@ -2,9 +2,7 @@ export const de = {
   header: {
     navLinks: [
       { name: 'Über uns', path: '/ueber-uns' },
-      { name: 'Workshops', path: '/workshops' },
       { name: 'Beratung', path: '/unabhaengige-beratung' },
-      { name: 'Erfolgsgeschichten', path: '/erfolgsgeschichten' },
     ],
     mvp: 'Microsoft MVP',
     contact: 'Kontakt',
@@ -211,7 +209,7 @@ export const de = {
           priceEarlyBird: 990,
           currency: 'CHF / EUR',
           cta: 'Auf die Warteliste',
-          detailLink: '#',
+          detailLink: '/workshops/power-automate-profi-in-4-wochen',
           features: [
             'ThePowerAddicts Zertifikat',
             'Advanced Error Handling',
@@ -230,7 +228,7 @@ export const de = {
           priceEarlyBird: 990,
           currency: 'CHF / EUR',
           cta: 'Auf die Warteliste',
-          detailLink: '#',
+          detailLink: '/workshops/power-apps-profi-in-4-wochen',
           features: [
             'ThePowerAddicts Zertifikat',
             'Responsive UI/UX Design',
@@ -506,6 +504,230 @@ export const de = {
     },
     finalCta: {
         title: "Bereit, zum Admin zu werden?",
+        subtitle: "Tragen Sie sich unverbindlich in die Warteliste ein. Wir informieren Sie, sobald die nächsten Termine feststehen."
+    }
+  },
+  powerAppsDetail: {
+    meta: {
+      title: 'Power Apps Profi Kurs | 4-Wochen Zertifizierung DACH',
+      description: 'Power Apps Schulung: 4-wöchiger Kurs zu Canvas Apps, Model-Driven Apps, Dataverse und UX-Design. Von Microsoft MVPs. Jetzt für DACH-Region buchen.'
+    },
+    nav: "Werde Power Apps Profi in 4 Wochen",
+    title: "Werde Power Apps Profi in 4 Wochen",
+    heroList: [
+      "Entwickle performante Canvas und Model-Driven Apps",
+      "Meistere Delegation, Collections und komplexe Formeln",
+      "Dataverse-Expertise und professionelles UX-Design"
+    ],
+    cta: "Auf die Warteliste eintragen",
+    curriculum: {
+        title: "Was du lernst – Wochenplan",
+        subtitle: "Ein strukturierter 4-Wochen-Plan, der dich vom App-Grundlagen über Dataverse und Performance bis zu professionellem UX/UI-Design führt.",
+        weeks: [
+            {
+                title: "Canvas Apps Fundamentals",
+                topics: [
+                    "App-Architektur und Best Practices",
+                    "Collections vs. Variablen richtig einsetzen",
+                    "Delegation verstehen und nutzen",
+                    "Formeln: Filter, LookUp, ForAll"
+                ]
+            },
+            {
+                title: "Dataverse Deep-Dive",
+                topics: [
+                    "Tabellen, Beziehungen und Geschäftslogik",
+                    "Berechnete Felder und Rollups",
+                    "Sicherheitsrollen und Column Security",
+                    "Dataverse for Teams vs. Premium"
+                ]
+            },
+            {
+                title: "Model-Driven Apps",
+                topics: [
+                    "Wann Model-Driven statt Canvas?",
+                    "Formulare, Ansichten und Geschäftsprozessflows",
+                    "JavaScript und PCF-Controls",
+                    "Moderne Steuerelemente"
+                ]
+            },
+            {
+                title: "Performance & UX",
+                topics: [
+                    "Performance-Optimierung (OnStart-Tricks)",
+                    "Responsive Design für Mobile/Desktop",
+                    "Komponentenbibliotheken",
+                    "Barrierefreiheit (Accessibility)"
+                ]
+            }
+        ]
+    },
+    deliverables: {
+        title: "Deine Ergebnisse (Deliverables)",
+        subtitle: "Du verlässt den Workshop nicht mit leeren Händen. Das nimmst du direkt für deinen Arbeitsalltag mit:",
+        cards: [
+            {
+                title: "App-Templates & Snippets",
+                items: ["Starter-Template mit Best Practices", "Formel-Sammlung für häufige Szenarien", "Component Library"]
+            },
+            {
+                title: "Checklisten & Guidelines",
+                items: ["Performance-Checklist", "UX/UI-Design-Guide", "Dataverse-Schema-Vorlage"]
+            },
+            {
+                title: "Hands-on Projekte",
+                items: ["3 vollständige Sample-Apps zum Weiterentwickeln"]
+            }
+        ]
+    },
+    audience: {
+        title: "Für wen ist dieser Workshop geeignet?",
+        items: [
+            "Citizen Developer, die ihre Apps auf professionelles Niveau heben wollen",
+            "IT-Entwickler, die Low-Code-Ansätze für Unternehmensanwendungen lernen möchten",
+            "Power Platform Maker, die komplexe Business-Szenarien umsetzen wollen"
+        ]
+    },
+    format: {
+        title: "Format & Ablauf",
+        text: "Der Workshop besteht aus <strong>Live-Sessions mit intensiven Praxis-Übungen</strong>. Wir entwickeln gemeinsam Apps, optimieren Performance und arbeiten mit Dataverse. Alle Workshops finden zu 100% online statt, was Ihnen maximale Flexibilität ohne Reisekosten ermöglicht.",
+        note: "<strong>Wichtig:</strong> Alle Sessions werden aufgezeichnet und stehen dir im Anschluss zur Verfügung, falls du einmal nicht live dabei sein kannst."
+    },
+    faq: {
+        title: "Häufig gestellte Fragen (FAQ)",
+        items: [
+            {
+                question: "Brauche ich Programmierkenntnisse?",
+                answer: "Nein, aber Grundverständnis von Logik und Formeln ist hilfreich. Wir erklären alle Konzepte von Grund auf, gehen aber schnell zu fortgeschrittenen Themen über."
+            },
+            {
+                question: "Canvas oder Model-Driven - was ist besser?",
+                answer: "Das hängt vom Use-Case ab. Wir zeigen dir beide Ansätze und wann welcher sinnvoll ist. Oft ist eine Kombination die beste Lösung."
+            },
+            {
+                question: "Was ist mit Desktop-Anwendungen?",
+                answer: "Power Apps fokussiert auf Web und Mobile. Für Desktop-Szenarien zeigen wir dir Alternativen oder Hybrid-Ansätze mit PWAs."
+            },
+            {
+                question: "Wie skaliere ich meine Apps?",
+                answer: "Wir behandeln ausführlich Performance-Optimierung, Delegation und Caching-Strategien für Apps mit Tausenden von Datensätzen."
+            }
+        ]
+    },
+    finalCta: {
+        title: "Bereit, Power Apps Profi zu werden?",
+        subtitle: "Tragen Sie sich unverbindlich in die Warteliste ein. Wir informieren Sie, sobald die nächsten Termine feststehen."
+    }
+  },
+  powerAutomateDetail: {
+    meta: {
+      title: 'Power Automate Profi Kurs | 4-Wochen Zertifizierung DACH',
+      description: 'Power Automate Schulung: 4-wöchiger Kurs zu Cloud Flows, Desktop Flows, Error Handling und API-Integration. Von Microsoft MVPs. Jetzt für DACH-Region buchen.'
+    },
+    nav: "Werde Power Automate Profi in 4 Wochen",
+    title: "Werde Power Automate Profi in 4 Wochen",
+    heroList: [
+      "Meistere komplexe Automatisierungen und Error Handling",
+      "Lerne API-Integrationen und Custom Connectors",
+      "Desktop Flows und Cloud Flows auf Enterprise-Level"
+    ],
+    cta: "Auf die Warteliste eintragen",
+    curriculum: {
+        title: "Was du lernst – Wochenplan",
+        subtitle: "Ein strukturierter 4-Wochen-Plan, der dich von Flow-Grundlagen über Error Handling und APIs bis zu Enterprise-Automatisierungen führt.",
+        weeks: [
+            {
+                title: "Flow Fundamentals & Patterns",
+                topics: [
+                    "Trigger-Arten und Bedingungen",
+                    "Schleifen und Parallel Branches",
+                    "Variablen, Arrays und Apply to Each",
+                    "Expressions und Formeln"
+                ]
+            },
+            {
+                title: "Error Handling & Monitoring",
+                topics: [
+                    "Try-Catch-Pattern mit Scopes",
+                    "Retry-Policies und Timeout-Strategien",
+                    "Logging und Custom Tracking",
+                    "Run-After-Konfiguration"
+                ]
+            },
+            {
+                title: "APIs & Custom Connectors",
+                topics: [
+                    "HTTP-Requests und Authentifizierung",
+                    "JSON Parsing und Schema",
+                    "Custom Connectors erstellen",
+                    "OpenAPI-Spezifikationen"
+                ]
+            },
+            {
+                title: "Desktop Flows & Enterprise",
+                topics: [
+                    "Power Automate Desktop-Grundlagen",
+                    "Attended vs. Unattended Bots",
+                    "Cloud-Desktop-Hybrid-Szenarien",
+                    "Solution-Aware-Flows und ALM"
+                ]
+            }
+        ]
+    },
+    deliverables: {
+        title: "Deine Ergebnisse (Deliverables)",
+        subtitle: "Du verlässt den Workshop nicht mit leeren Händen. Das nimmst du direkt für deinen Arbeitsalltag mit:",
+        cards: [
+            {
+                title: "Flow-Templates & Snippets",
+                items: ["Error-Handling-Framework", "API-Integration-Beispiele", "Logging-Template"]
+            },
+            {
+                title: "Checklisten & Guidelines",
+                items: ["Performance-Best-Practices", "Security-Checklist", "Testing-Strategie"]
+            },
+            {
+                title: "Hands-on Projekte",
+                items: ["3 Enterprise-Flow-Beispiele zum Weiterentwickeln"]
+            }
+        ]
+    },
+    audience: {
+        title: "Für wen ist dieser Workshop geeignet?",
+        items: [
+            "Power-User, die ihre Automatisierungen professionalisieren wollen",
+            "IT-Professionals, die RPA und Workflow-Automatisierung lernen möchten",
+            "Entwickler, die Low-Code-Integration in Enterprise-Systeme suchen"
+        ]
+    },
+    format: {
+        title: "Format & Ablauf",
+        text: "Der Workshop besteht aus <strong>Live-Sessions mit intensiven Praxis-Übungen</strong>. Wir entwickeln gemeinsam Flows, debuggen Fehler und integrieren APIs. Alle Workshops finden zu 100% online statt, was Ihnen maximale Flexibilität ohne Reisekosten ermöglicht.",
+        note: "<strong>Wichtig:</strong> Alle Sessions werden aufgezeichnet und stehen dir im Anschluss zur Verfügung, falls du einmal nicht live dabei sein kannst."
+    },
+    faq: {
+        title: "Häufig gestellte Fragen (FAQ)",
+        items: [
+            {
+                question: "Was ist der Unterschied zu Logic Apps?",
+                answer: "Logic Apps ist Azure-basiert und für Entwickler gedacht. Power Automate ist citizen-developer-freundlich und tief in Microsoft 365 integriert. Wir zeigen beide Ansätze."
+            },
+            {
+                question: "Wie handle ich große Datenmengen?",
+                answer: "Wir behandeln ausführlich Pagination, Batching und Performance-Optimierung für Flows mit Millionen von Datensätzen."
+            },
+            {
+                question: "Was kostet Power Automate?",
+                answer: "Wir erklären das Lizenzmodell (Per User, Per Flow) und zeigen dir, wie du Kosten optimierst, z.B. durch Flow-Konsolidierung."
+            },
+            {
+                question: "Desktop Flows - brauche ich das?",
+                answer: "Wenn du Legacy-Systeme ohne APIs automatisieren willst: ja. Wir zeigen dir Vor- und Nachteile und wann es Sinn macht."
+            }
+        ]
+    },
+    finalCta: {
+        title: "Bereit, Power Automate Profi zu werden?",
         subtitle: "Tragen Sie sich unverbindlich in die Warteliste ein. Wir informieren Sie, sobald die nächsten Termine feststehen."
     }
   },

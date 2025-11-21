@@ -8,8 +8,9 @@ import ScrollToTop from './components/ScrollToTop';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import WorkshopDetailPage from './pages/WorkshopDetailPage';
+import PowerAppsWorkshopDetailPage from './pages/PowerAppsWorkshopDetailPage';
+import PowerAutomateWorkshopDetailPage from './pages/PowerAutomateWorkshopDetailPage';
 import ConsultingPage from './pages/ConsultingPage';
-import SuccessStoriesPage from './pages/SuccessStoriesPage';
 import ContactPage from './pages/ContactPage';
 import PartnerPage from './pages/PartnerPage';
 import LegalPage from './pages/LegalPage';
@@ -89,8 +90,9 @@ const AppContent: React.FC = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/ueber-uns" element={<AboutPage />} />
             <Route path="/workshops/power-platform-admin-in-4-wochen" element={<WorkshopDetailPage />} />
+            <Route path="/workshops/power-apps-profi-in-4-wochen" element={<PowerAppsWorkshopDetailPage />} />
+            <Route path="/workshops/power-automate-profi-in-4-wochen" element={<PowerAutomateWorkshopDetailPage />} />
             <Route path="/unabhaengige-beratung" element={<ConsultingPage />} />
-            <Route path="/erfolgsgeschichten" element={<SuccessStoriesPage />} />
             <Route path="/kontakt" element={<ContactPage />} />
             <Route path="/partner" element={<PartnerPage />} />
             <Route path="/rechtliches" element={<LegalPage />} /> 

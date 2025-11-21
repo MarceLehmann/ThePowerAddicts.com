@@ -2,9 +2,7 @@ export const en = {
   header: {
     navLinks: [
       { name: 'About Us', path: '/ueber-uns' },
-      { name: 'Workshops', path: '/workshops' },
       { name: 'Consulting', path: '/unabhaengige-beratung' },
-      { name: 'Success Stories', path: '/erfolgsgeschichten' },
     ],
     mvp: 'Microsoft MVP',
     contact: 'Contact',
