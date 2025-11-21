@@ -452,20 +452,20 @@ const HomePage: React.FC = () => {
         <AnimatedSection className="py-16">
           <div className="container mx-auto px-6 max-w-5xl">
             <h2 className="text-2xl md:text-3xl font-bold text-brand-blue-dark text-center">Weiterlesen</h2>
-            <p className="mt-2 text-center text-gray-600">Mehr zu Beratung und vertiefenden Inhalten</p>
+            <p className="mt-2 text-center text-gray-600">Mehr zu unseren Intensiv-Programmen</p>
             <div className="mt-8 grid md:grid-cols-3 gap-6">
-              <Link to="/unabhaengige-beratung" className="block bg-white p-6 rounded-xl shadow hover:shadow-lg border border-gray-100 transition-transform hover:-translate-y-1">
-                <h3 className="text-lg font-semibold text-brand-blue-dark">Unabhängige Power Platform Beratung</h3>
-                <p className="text-gray-600 mt-2">Audit, Zweitmeinung oder Governance‑Check – objektive MVP‑Expertise.</p>
-              </Link>
               <Link to="/workshops/power-platform-admin-in-4-wochen" className="block bg-white p-6 rounded-xl shadow hover:shadow-lg border border-gray-100 transition-transform hover:-translate-y-1">
-                <h3 className="text-lg font-semibold text-brand-blue-dark">Power Platform Admin – Kursdetails</h3>
-                <p className="text-gray-600 mt-2">Alle Inhalte, Wochenplan und Zertifizierung im Überblick.</p>
+                <h3 className="text-lg font-semibold text-brand-blue-dark">Power Platform Admin</h3>
+                <p className="text-gray-600 mt-2">Werde in 4 Wochen zum zertifizierten Power Platform Administrator.</p>
               </Link>
-              <a href="#erfolgsgeschichten" className="block bg-white p-6 rounded-xl shadow hover:shadow-lg border border-gray-100 transition-transform hover:-translate-y-1">
-                <h3 className="text-lg font-semibold text-brand-blue-dark">Erfolgsgeschichten</h3>
-                <p className="text-gray-600 mt-2">Lerne unsere Absolvent:innen und ihren Weg zum Erfolg kennen.</p>
-              </a>
+              <Link to="/workshops/power-apps-profi-in-4-wochen" className="block bg-white p-6 rounded-xl shadow hover:shadow-lg border border-gray-100 transition-transform hover:-translate-y-1">
+                <h3 className="text-lg font-semibold text-brand-blue-dark">Power Apps Profi</h3>
+                <p className="text-gray-600 mt-2">Entwickle professionelle Canvas & Model-Driven Apps in 4 Wochen.</p>
+              </Link>
+              <Link to="/workshops/power-automate-profi-in-4-wochen" className="block bg-white p-6 rounded-xl shadow hover:shadow-lg border border-gray-100 transition-transform hover:-translate-y-1">
+                <h3 className="text-lg font-semibold text-brand-blue-dark">Power Automate Profi</h3>
+                <p className="text-gray-600 mt-2">Meistere komplexe Automatisierungen und API-Integrationen in 4 Wochen.</p>
+              </Link>
             </div>
           </div>
         </AnimatedSection>
