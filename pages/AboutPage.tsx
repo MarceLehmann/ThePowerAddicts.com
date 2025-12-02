@@ -43,7 +43,8 @@ const AboutPage: React.FC = () => {
         {/* Hero Section */}
         <section className="bg-brand-light-blue py-24">
           <div className="container mx-auto px-6 text-center">
-            <MvpLogo className="w-16 h-16 mx-auto text-brand-teal" />
+            <MvpLogo className="w-24 h-24 mx-auto text-brand-teal drop-shadow-lg" />
+            <p className="mt-3 text-brand-teal font-bold text-xl tracking-wide">Microsoft Most Valuable Professionals</p>
             <h1 className="text-4xl md:text-5xl font-extrabold text-brand-blue-dark mt-4">{t('about.hero.title')}</h1>
             <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
               {t('about.hero.text')}

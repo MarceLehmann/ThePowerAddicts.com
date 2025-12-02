@@ -31,10 +31,10 @@ const workshopLinks: Record<string, { detailLink: string; }> = {
         detailLink: '/workshops/power-platform-admin-in-4-wochen',
     },
     'power-automate-pro': {
-        detailLink: '#',
+        detailLink: '/workshops/power-automate-profi-in-4-wochen',
     },
     'power-apps-pro': {
-        detailLink: '#',
+        detailLink: '/workshops/power-apps-profi-in-4-wochen',
     }
 }
 

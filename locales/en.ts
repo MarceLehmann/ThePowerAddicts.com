@@ -106,7 +106,7 @@ export const en = {
       description: 'Meet Microsoft MVPs Marcel Lehmann and Michael Roth. Learn about our mission to train Power Platform experts in the DACH region.'
     },
     hero: {
-        title: "Microsoft MVPs with a Mission",
+        title: "Your Mentors for the Microsoft Power Platform",
         text: "In recent years, we have guided over 300 professionals on their journey to becoming Power Platform experts. With the number of citizen developers exploding—often quadrupling in just three years—our mission is clearer than ever: we train the urgently needed administrators who ensure stability, security, and scalability. We impart the practical knowledge that transforms careers."
     },
     expertise: {
@@ -164,7 +164,7 @@ export const en = {
       description: 'Discover our expert workshops for Power Platform Admin, Power Automate, and Power Apps. Book your training and start your career in the DACH region.'
     },
     hero: {
-        title: "Power Platform Expert Workshops & Training",
+        title: "Become a Microsoft Power Platform Expert in 4 Weeks",
         subtitle: "Structured 4-week courses with ThePowerAddicts certification. Based on 150+ enterprise projects. Guaranteed measurable results for your professional development."
     },
     available: "Available Expert Workshops",

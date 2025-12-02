@@ -16,6 +16,7 @@ import PartnerPage from './pages/PartnerPage';
 import LegalPage from './pages/LegalPage';
 import WorkshopModal from './components/WorkshopModal';
 import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 import StructuredData from './components/StructuredData';
 import { useTranslation } from './hooks/useTranslation';
 
@@ -114,9 +115,11 @@ const AppContent: React.FC = () => {
 
 const App: React.FC = () => {
   return (
-    <LanguageProvider>
-      <AppContent />
-    </LanguageProvider>
+    <ThemeProvider>
+      <LanguageProvider>
+        <AppContent />
+      </LanguageProvider>
+    </ThemeProvider>
   );
 };
 

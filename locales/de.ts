@@ -167,7 +167,7 @@ export const de = {
       description: 'Lernen Sie die Microsoft MVPs Marcel Lehmann und Michael Roth kennen. Erfahren Sie mehr über unsere Mission, Power Platform Experten im DACH-Raum auszubilden.'
     },
     hero: {
-        title: "Microsoft MVPs mit einer Mission",
+        title: "Deine Mentoren für die Microsoft Power Platform",
         text: "In den letzten Jahren haben wir über 300 Professionals auf ihrem Weg zu Power Platform Experten begleitet. Angesichts der explodierenden Anzahl von Citizen Developern – oft eine Vervierfachung in nur drei Jahren – ist unsere Mission klarer denn je: Wir bilden die dringend benötigten Administratoren aus, die für Stabilität, Sicherheit und Skalierbarkeit sorgen. Wir vermitteln das Praxis-Wissen, das Karrieren transformiert."
     },
     expertise: {
@@ -225,7 +225,7 @@ export const de = {
       description: 'Microsoft Power Platform Workshops von MVPs: Power Apps Workshop Schweiz, Power Automate Schulung Online und Admin-Kurse. 4-Wochen Programme mit Zertifizierung – inkl. unabhängiger Beratung.'
     },
     hero: {
-        title: "Power Platform Workshop: Vom Anfänger zum Expert",
+        title: "Werde Microsoft Power Platform Expert in 4 Wochen",
         subtitle: "Strukturierte 4-Wochen Power Platform Kurse mit ThePowerAddicts Zertifizierung. Basiert auf 150+ Enterprise-Projekten. Garantiert messbare Ergebnisse für Ihre Power Platform Schulung."
     },
     available: "Verfügbare Expert-Workshops",

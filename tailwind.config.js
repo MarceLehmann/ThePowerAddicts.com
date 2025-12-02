@@ -10,6 +10,7 @@ export default {
     "./hooks/**/*.{js,ts,jsx,tsx}",
     "./constants/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class', // Enable dark mode with class strategy
   theme: {
     extend: {
       colors: {

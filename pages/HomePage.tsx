@@ -3,7 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import type { Stat } from '../types';
-import { GraduationCapIcon, SearchIcon, CheckCircleIcon, UsersIcon, ClockIcon, ShieldCheckIcon, CertificateIcon, CodeBracketIcon, RocketLaunchIcon } from '../constants/icons';
+import { GraduationCapIcon, SearchIcon, CheckCircleIcon, UsersIcon, ClockIcon, ShieldCheckIcon, CertificateIcon, CodeBracketIcon, RocketLaunchIcon, MvpLogo } from '../constants/icons';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useTranslation } from '../hooks/useTranslation';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -226,6 +226,10 @@ const HomePage: React.FC = () => {
         {/* Hero Section */}
         <section className="relative overflow-hidden gear-bg">
           <div className="container mx-auto px-6 pt-20 pb-16 text-center">
+            <div className="flex justify-center items-center gap-3 mb-4">
+              <MvpLogo className="w-12 h-12 text-brand-teal animate-pulse" />
+              <span className="text-brand-teal font-bold text-lg">Microsoft MVP Expertise</span>
+            </div>
             <h1 className="text-4xl md:text-6xl font-extrabold text-brand-blue-dark leading-tight">
               {t('home.hero.title1')} <br />
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-teal to-brand-purple">{t('home.hero.title2')}</span>
