@@ -358,6 +358,230 @@ export const en = {
         subtitle: "Join the waiting list to be notified when the next dates are announced."
     }
   },
+  powerAppsDetail: {
+    meta: {
+      title: 'Power Apps Pro Course | 4-Week Certification DACH',
+      description: 'Power Apps training: 4-week course on Canvas Apps, Model-Driven Apps, Dataverse and UX design. By Microsoft MVPs. Book now for DACH region.'
+    },
+    nav: "Become a Power Apps Pro in 4 Weeks",
+    title: "Become a Power Apps Pro in 4 Weeks",
+    heroList: [
+      "Develop high-performance Canvas and Model-Driven Apps",
+      "Master delegation, collections and complex formulas",
+      "Dataverse expertise and professional UX design"
+    ],
+    cta: "Join Waiting List",
+    curriculum: {
+        title: "What You'll Learn – Weekly Plan",
+        subtitle: "A structured 4-week plan that takes you from app basics through Dataverse and performance to professional UX/UI design.",
+        weeks: [
+            {
+                title: "Canvas Apps Fundamentals",
+                topics: [
+                    "App architecture and best practices",
+                    "Using collections vs. variables correctly",
+                    "Understanding and utilizing delegation",
+                    "Formulas: Filter, LookUp, ForAll"
+                ]
+            },
+            {
+                title: "Dataverse Deep-Dive",
+                topics: [
+                    "Tables, relationships and business logic",
+                    "Calculated fields and rollups",
+                    "Security roles and column security",
+                    "Dataverse for Teams vs. Premium"
+                ]
+            },
+            {
+                title: "Model-Driven Apps",
+                topics: [
+                    "When Model-Driven instead of Canvas?",
+                    "Forms, views and business process flows",
+                    "JavaScript and PCF controls",
+                    "Modern controls"
+                ]
+            },
+            {
+                title: "Performance & UX",
+                topics: [
+                    "Performance optimization (OnStart tricks)",
+                    "Responsive design for mobile/desktop",
+                    "Component libraries",
+                    "Accessibility"
+                ]
+            }
+        ]
+    },
+    deliverables: {
+        title: "Your Results (Deliverables)",
+        subtitle: "You won't leave the workshop empty-handed. You'll take these directly into your daily work:",
+        cards: [
+            {
+                title: "App Templates & Snippets",
+                items: ["Starter template with best practices", "Formula collection for common scenarios", "Component Library"]
+            },
+            {
+                title: "Checklists & Guidelines",
+                items: ["Performance checklist", "UX/UI design guide", "Dataverse schema template"]
+            },
+            {
+                title: "Hands-on Projects",
+                items: ["3 complete sample apps to continue developing"]
+            }
+        ]
+    },
+    audience: {
+        title: "Who is this workshop for?",
+        items: [
+            "Citizen developers who want to take their apps to a professional level",
+            "IT developers who want to learn low-code approaches for enterprise applications",
+            "Power Platform makers who want to implement complex business scenarios"
+        ]
+    },
+    format: {
+        title: "Format & Schedule",
+        text: "The workshop consists of <strong>live sessions with intensive practical exercises</strong>. We develop apps together, optimize performance and work with Dataverse. All workshops are 100% online, offering you maximum flexibility without travel costs.",
+        note: "<strong>Important:</strong> All sessions are recorded and will be available to you afterward, in case you cannot attend live."
+    },
+    faq: {
+        title: "Frequently Asked Questions (FAQ)",
+        items: [
+            {
+                question: "Do I need programming skills?",
+                answer: "No, but basic understanding of logic and formulas is helpful. We explain all concepts from scratch but quickly move to advanced topics."
+            },
+            {
+                question: "Canvas or Model-Driven - which is better?",
+                answer: "It depends on the use case. We show you both approaches and when which makes sense. Often a combination is the best solution."
+            },
+            {
+                question: "What about desktop applications?",
+                answer: "Power Apps focuses on web and mobile. For desktop scenarios we show you alternatives or hybrid approaches with PWAs."
+            },
+            {
+                question: "How do I scale my apps?",
+                answer: "We cover performance optimization, delegation and caching strategies for apps with thousands of records in detail."
+            }
+        ]
+    },
+    finalCta: {
+        title: "Ready to become a Power Apps Pro?",
+        subtitle: "Join the waiting list to be notified when the next dates are announced."
+    }
+  },
+  powerAutomateDetail: {
+    meta: {
+      title: 'Power Automate Pro Course | 4-Week Certification DACH',
+      description: 'Power Automate training: 4-week course on Cloud Flows, Desktop Flows, Error Handling and API integration. By Microsoft MVPs. Book now for DACH region.'
+    },
+    nav: "Become a Power Automate Pro in 4 Weeks",
+    title: "Become a Power Automate Pro in 4 Weeks",
+    heroList: [
+      "Master complex automations and error handling",
+      "Learn API integrations and custom connectors",
+      "Desktop Flows and Cloud Flows at enterprise level"
+    ],
+    cta: "Join Waiting List",
+    curriculum: {
+        title: "What You'll Learn – Weekly Plan",
+        subtitle: "A structured 4-week plan that takes you from flow basics through error handling and APIs to enterprise automations.",
+        weeks: [
+            {
+                title: "Flow Fundamentals & Patterns",
+                topics: [
+                    "Trigger types and conditions",
+                    "Loops and parallel branches",
+                    "Variables, arrays and Apply to Each",
+                    "Expressions and formulas"
+                ]
+            },
+            {
+                title: "Error Handling & Monitoring",
+                topics: [
+                    "Try-Catch pattern with scopes",
+                    "Retry policies and timeout strategies",
+                    "Logging and custom tracking",
+                    "Run-After configuration"
+                ]
+            },
+            {
+                title: "APIs & Custom Connectors",
+                topics: [
+                    "HTTP requests and authentication",
+                    "JSON parsing and schema",
+                    "Creating custom connectors",
+                    "OpenAPI specifications"
+                ]
+            },
+            {
+                title: "Desktop Flows & Enterprise",
+                topics: [
+                    "Power Automate Desktop basics",
+                    "Attended vs. Unattended bots",
+                    "Cloud-Desktop hybrid scenarios",
+                    "Solution-aware flows and ALM"
+                ]
+            }
+        ]
+    },
+    deliverables: {
+        title: "Your Results (Deliverables)",
+        subtitle: "You won't leave the workshop empty-handed. You'll take these directly into your daily work:",
+        cards: [
+            {
+                title: "Flow Templates & Snippets",
+                items: ["Error handling framework", "API integration examples", "Logging template"]
+            },
+            {
+                title: "Checklists & Guidelines",
+                items: ["Performance best practices", "Security checklist", "Testing strategy"]
+            },
+            {
+                title: "Hands-on Projects",
+                items: ["3 enterprise flow examples to continue developing"]
+            }
+        ]
+    },
+    audience: {
+        title: "Who is this workshop for?",
+        items: [
+            "Power users who want to professionalize their automations",
+            "IT professionals who want to learn RPA and workflow automation",
+            "Developers looking for low-code integration into enterprise systems"
+        ]
+    },
+    format: {
+        title: "Format & Schedule",
+        text: "The workshop consists of <strong>live sessions with intensive practical exercises</strong>. We develop flows together, debug errors and integrate APIs. All workshops are 100% online, offering you maximum flexibility without travel costs.",
+        note: "<strong>Important:</strong> All sessions are recorded and will be available to you afterward, in case you cannot attend live."
+    },
+    faq: {
+        title: "Frequently Asked Questions (FAQ)",
+        items: [
+            {
+                question: "What's the difference to Logic Apps?",
+                answer: "Logic Apps is Azure-based and intended for developers. Power Automate is citizen-developer-friendly and deeply integrated into Microsoft 365. We show both approaches."
+            },
+            {
+                question: "How do I handle large data volumes?",
+                answer: "We cover pagination, batching and performance optimization for flows with millions of records in detail."
+            },
+            {
+                question: "What does Power Automate cost?",
+                answer: "We explain the licensing model (Per User, Per Flow) and show you how to optimize costs, e.g. through flow consolidation."
+            },
+            {
+                question: "Desktop Flows - do I need that?",
+                answer: "If you want to automate legacy systems without APIs: yes. We show you pros and cons and when it makes sense."
+            }
+        ]
+    },
+    finalCta: {
+        title: "Ready to become a Power Automate Pro?",
+        subtitle: "Join the waiting list to be notified when the next dates are announced."
+    }
+  },
   consulting: {
     meta: {
       title: 'Independent Power Platform Consulting | ThePowerAddicts',
