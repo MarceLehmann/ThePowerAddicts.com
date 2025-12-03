@@ -10,7 +10,7 @@ interface CurrencyData {
 
 const CURRENCY_DATA: Record<Currency, CurrencyData> = {
   CHF: { currency: 'CHF', symbol: 'CHF', conversionRate: 1 },
-  EUR: { currency: 'EUR', symbol: '€', conversionRate: 1.05 } // 1 CHF ≈ 1.05 EUR
+  EUR: { currency: 'EUR', symbol: '€', conversionRate: 0.95 } // 1 CHF ≈ 0.95 EUR (approximate parity)
 };
 
 /**

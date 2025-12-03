@@ -7,6 +7,7 @@ import { GraduationCapIcon, SearchIcon, CheckCircleIcon, UsersIcon, ClockIcon, S
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useTranslation } from '../hooks/useTranslation';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useCurrency } from '../hooks/useCurrency';
 import EnhancedMeta from '../components/EnhancedMeta';
 import StructuredData from '../components/StructuredData';
 import { enhancedSchemas } from '../constants/enhancedSchemas';
@@ -35,7 +36,8 @@ const CourseDateCard: React.FC<{
   statusLabels: any;
   labels: any;
   onRegister: () => void;
-}> = ({ date, format, statusLabels, labels, onRegister }) => {
+  formatPrice: (price: number) => string;
+}> = ({ date, format, statusLabels, labels, onRegister, formatPrice }) => {
   const statusColors = {
     available: 'bg-green-100 text-green-800 border-green-200',
     limited: 'bg-yellow-100 text-yellow-800 border-yellow-200',
@@ -74,10 +76,10 @@ const CourseDateCard: React.FC<{
         <div className="flex items-baseline justify-between mb-4">
           <div>
             {format.earlyBirdPrice && date.status === 'waitlist' && (
-              <p className="text-sm text-green-600 font-bold">{labels.earlyBird}: CHF {format.earlyBirdPrice}.-</p>
+              <p className="text-sm text-green-600 font-bold">{labels.earlyBird}: {formatPrice(format.earlyBirdPrice)}</p>
             )}
             <p className={`${format.earlyBirdPrice && date.status === 'waitlist' ? 'text-sm text-gray-500 line-through' : 'text-2xl font-bold text-brand-blue-dark'}`}>
-              CHF {format.price}.-
+              {formatPrice(format.price)}
             </p>
             <p className="text-xs text-gray-500">{labels.perPerson}</p>
           </div>
@@ -103,7 +105,7 @@ const AnimatedSection: React.FC<{children: React.ReactNode, className?: string, 
     return <section ref={ref} id={id} className={`${className} ${animationClasses}`}>{children}</section>;
 }
 
-const HomeWorkshopCard: React.FC<{ workshop: any; isFeatured: boolean }> = ({ workshop, isFeatured }) => {
+const HomeWorkshopCard: React.FC<{ workshop: any; isFeatured: boolean; formatPrice: (price: number) => string }> = ({ workshop, isFeatured, formatPrice }) => {
     const { showModal } = useLanguage();
     const { t } = useTranslation();
 
@@ -150,10 +152,10 @@ const HomeWorkshopCard: React.FC<{ workshop: any; isFeatured: boolean }> = ({ wo
                 <div className="flex justify-between items-baseline mb-6">
                     <div>
                         {workshop.priceEarlyBird && (
-                           <p className="text-sm text-green-600 font-bold">{t('workshops.earlyBird')}: {workshop.priceEarlyBird} {workshop.currency}</p>
+                           <p className="text-sm text-green-600 font-bold">{t('workshops.earlyBird')}: {formatPrice(workshop.priceEarlyBird)}</p>
                         )}
                         <p className={`${workshop.priceEarlyBird ? 'text-sm text-gray-500 line-through' : 'text-2xl font-bold text-brand-blue-dark'}`}>
-                           {t('workshops.regularPrice')}: {workshop.priceNormal} {workshop.currency}
+                           {t('workshops.regularPrice')}: {formatPrice(workshop.priceNormal)}
                         </p>
                     </div>
                     <Link to={workshop.detailLink || "/workshops/power-platform-admin-in-4-wochen"} className="text-sm font-semibold text-brand-teal hover:underline flex-shrink-0 ml-4">{t('workshops.details')}</Link>
@@ -168,6 +170,7 @@ const HomeWorkshopCard: React.FC<{ workshop: any; isFeatured: boolean }> = ({ wo
 const HomePage: React.FC = () => {
   const { t } = useTranslation();
   const { showModal } = useLanguage();
+  const { formatPrice, currency } = useCurrency();
   const heroStats: Stat[] = t('home.hero.stats');
   const expertisePathsData = t('home.expertisePaths');
   const upcomingCourses = t('home.upcomingCourses');
@@ -199,7 +202,7 @@ const HomePage: React.FC = () => {
       offers: {
         '@type': 'Offer',
         price: format.earlyBirdPrice || format.price,
-        priceCurrency: 'CHF',
+        priceCurrency: currency,
         availability: date.status === 'full' ? 'https://schema.org/SoldOut' : 'https://schema.org/InStock',
         validFrom: new Date().toISOString().split('T')[0]
       }
@@ -290,6 +293,7 @@ const HomePage: React.FC = () => {
                               format={format}
                               statusLabels={upcomingCourses.statusLabels}
                               labels={upcomingCourses}
+                              formatPrice={formatPrice}
                               onRegister={() => {
                                 if (format.tagline.includes('Admin')) {
                                   showModal('waitingListAdmin');
@@ -340,6 +344,7 @@ const HomePage: React.FC = () => {
                               format={format}
                               statusLabels={upcomingCourses.statusLabels}
                               labels={upcomingCourses}
+                              formatPrice={formatPrice}
                               onRegister={() => showModal('waitingListAdmin')}
                             />
                           </AnimatedSection>
