@@ -1,3 +1,5 @@
+import { allWorkshops } from '../data/workshops';
+
 export const en = {
   header: {
     navLinks: [
@@ -64,39 +66,94 @@ export const en = {
       ctaWorkshops: 'Discover Workshops',
       ctaConsulting: 'Request Consulting'
     },
+    upcomingCourses: {
+      title: 'Power Platform Workshops',
+      subtitle: 'Choose your workshop – All courses 100% online via Microsoft Teams',
+      formats: allWorkshops,
+      statusLabels: {
+        available: 'Available',
+        limited: 'Few Spots Left',
+        waitlist: 'Join Waiting List',
+        full: 'Sold Out'
+      },
+      spotsLeft: 'spots available',
+      perPerson: 'per person',
+      earlyBird: 'Early bird until',
+      register: 'Register Now',
+      registerWaitlist: 'Join Waitlist',
+      details: 'More Details'
+    },
     expertisePaths: {
-      title: 'Two Paths to Power Platform Expertise',
+      title: 'Available Expert Workshops',
       subtitle: 'Choose the path that best suits your goals: intensive workshops or tailored consulting.',
       workshops: [
         {
           id: 'admin',
           modalId: 'waitingListAdmin',
           title: 'Become a Power Platform Admin in 4 Weeks',
-          description: 'Learn to manage a secure, scalable, and efficient Power Platform environment at an enterprise level.',
+          subtitle: 'Become a certified Power Platform Administrator',
+          description: 'Structured 4-week intensive program to become a certified admin. From environment setup to Center of Excellence - all hands-on.',
+          status: 'waitlist',
+          priceNormal: 1290,
+          priceEarlyBird: 990,
+          currency: 'CHF / EUR',
           cta: 'Join Waiting List',
-          detailLink: '/workshops/power-platform-admin-in-4-wochen'
+          detailLink: '/workshops/power-platform-admin-in-4-wochen',
+          features: [
+            '30min 1:1 Mentoring',
+            'ThePowerAddicts Certificate',
+            'Recordings & Presentations',
+            '100% Practical Focus'
+          ]
         },
         {
           id: 'automate',
           modalId: 'waitingListAutomate',
           title: 'Become a Power Automate Pro in 4 Weeks',
-          description: 'Automate complex business processes using advanced techniques in Power Automate.',
+          subtitle: 'Master complex automations',
+          description: 'A deep-dive into advanced Power Automate concepts, from error handling to API integration.',
+          status: 'waitlist',
+          priceNormal: 1290,
+          priceEarlyBird: 990,
+          currency: 'CHF / EUR',
           cta: 'Join Waiting List',
-          detailLink: '#'
+          detailLink: '/workshops/power-automate-profi-in-4-wochen',
+          features: [
+            '30min 1:1 Mentoring',
+            'ThePowerAddicts Certificate',
+            'Recordings & Presentations',
+            'API Integrations'
+          ]
         },
         {
           id: 'apps',
           modalId: 'waitingListApps',
           title: 'Become a Power Apps Pro in 4 Weeks',
-          description: 'Develop sophisticated, high-performance, and user-friendly business applications with Power Apps.',
+          subtitle: 'Develop sophisticated business apps',
+          description: 'Learn to build performant and scalable Canvas and Model-Driven apps with a focus on premium UX.',
+          status: 'waitlist',
+          priceNormal: 1290,
+          priceEarlyBird: 990,
+          currency: 'CHF / EUR',
           cta: 'Join Waiting List',
-          detailLink: '#'
+          detailLink: '/workshops/power-apps-profi-in-4-wochen',
+          features: [
+            '30min 1:1 Mentoring',
+            'ThePowerAddicts Certificate',
+            'Recordings & Presentations',
+            'Dataverse for Pros'
+          ]
         }
       ],
       consulting: {
         title: 'Independent Consulting',
         description: 'Get objective MVP expertise for your most complex challenges.',
         cta: 'Request Consulting'
+      },
+      customTraining: {
+        title: 'No suitable date available?',
+        description: 'No problem! We also offer individual training for you or your team. Flexible according to your schedule and adapted to your specific needs.',
+        cta: 'Request Individual Training'
       }
     }
   },
