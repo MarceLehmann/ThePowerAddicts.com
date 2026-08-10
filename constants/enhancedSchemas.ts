@@ -13,9 +13,15 @@ export const enhancedSchemas = {
     "telephone": "+41-44-123-4567", // TODO: Echte Telefonnummer einfügen
     "email": "info@thepoweraddicts.com",
     "priceRange": "CHF 1500 - CHF 3500",
+    "vatID": "CHE-296.591.945",
+    "identifier": {
+      "@type": "PropertyValue",
+      "propertyID": "UID",
+      "value": "CHE-296.591.945"
+    },
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Im Feldacher 16",
+      "streetAddress": "Weidstrasse 1",
       "addressLocality": "Fehraltorf",
       "postalCode": "8320",
       "addressRegion": "ZH",
@@ -47,7 +53,8 @@ export const enhancedSchemas = {
       "closes": "18:00"
     },
     "sameAs": [
-      "https://www.linkedin.com/company/100255788/"
+      "https://www.linkedin.com/company/100255788/",
+      "https://www.uid.admin.ch/Detail.aspx?uid_id=CHE-296.591.945"
     ],
     "aggregateRating": {
       "@type": "AggregateRating",

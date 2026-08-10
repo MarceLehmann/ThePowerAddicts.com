@@ -778,7 +778,7 @@ export const en = {
       content: [
         'ThePowerAddicts.com',
         'Sole proprietorship of Marcel Lehmann',
-        'Im Feldacher 16',
+        'Weidstrasse 1',
         '8320 Fehraltorf',
         'Switzerland'
       ]
@@ -789,7 +789,7 @@ export const en = {
         <p><strong>Last Updated: October 2025</strong></p>
         <h4>1. General Information and Contact Details</h4>
         <p>This privacy policy informs you about the nature, scope, and purpose of the processing of personal data on our website www.thepoweraddicts.com and when using our services. We comply with the Swiss Federal Act on Data Protection (FADP) and the General Data Protection Regulation (GDPR) for customers in the EU.</p>
-        <p><strong>Data Controller:</strong><br>ThePowerAddicts.com, Marcel Lehmann, Im Feldacher 16, 8320 Fehraltorf, Switzerland</p>
+        <p><strong>Data Controller:</strong><br>ThePowerAddicts.com, Marcel Lehmann, Weidstrasse 1, 8320 Fehraltorf, Switzerland</p>
         <p><strong>For data protection inquiries:</strong> info@thepoweraddicts.com</p>
         
         <h4>2. Data Collection on Our Website</h4>
@@ -904,7 +904,7 @@ export const en = {
       },
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Im Feldacher 16",
+        "streetAddress": "Weidstrasse 1",
         "addressLocality": "Fehraltorf",
         "postalCode": "8320",
         "addressCountry": "CH"

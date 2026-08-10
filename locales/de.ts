@@ -782,7 +782,7 @@ export const de = {
       content: [
         'ThePowerAddicts.com',
         'Einzelfirma von Marcel Lehmann',
-        'Im Feldacher 16',
+        'Weidstrasse 1',
         '8320 Fehraltorf',
         'Schweiz'
       ]
@@ -793,7 +793,7 @@ export const de = {
         <p><strong>Stand: Oktober 2025</strong></p>
         <h4>1. Allgemeine Hinweise und Kontaktdaten</h4>
         <p>Diese Datenschutzerklärung klärt Sie über die Art, den Umfang und Zweck der Verarbeitung von personenbezogenen Daten auf unserer Website www.thepoweraddicts.com und bei der Nutzung unserer Dienstleistungen auf. Wir berücksichtigen dabei das Schweizer Datenschutzgesetz (nDSG) sowie die Datenschutz-Grundverordnung (DSGVO) für Kunden im EU-Raum.</p>
-        <p><strong>Verantwortliche Stelle:</strong><br>ThePowerAddicts.com, Marcel Lehmann, Im Feldacher 16, 8320 Fehraltorf, Schweiz</p>
+        <p><strong>Verantwortliche Stelle:</strong><br>ThePowerAddicts.com, Marcel Lehmann, Weidstrasse 1, 8320 Fehraltorf, Schweiz</p>
         <p><strong>Bei Fragen zum Datenschutz:</strong> info@thepoweraddicts.com</p>
         
         <h4>2. Datenerfassung auf unserer Website</h4>
@@ -908,7 +908,7 @@ export const de = {
       },
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Im Feldacher 16",
+        "streetAddress": "Weidstrasse 1",
         "addressLocality": "Fehraltorf",
         "postalCode": "8320",
         "addressCountry": "CH"
