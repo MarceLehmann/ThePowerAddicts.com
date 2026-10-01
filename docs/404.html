@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Weiterleitung auf kmupower.com</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<noscript><meta http-equiv="refresh" content="0; url=https://kmupower.com/"></noscript>
+</head>
+<body>
+<p>Weiterleitung auf <a id="go" href="https://kmupower.com/">kmupower.com</a></p>
+<script>
+(function () {
+  var exact = {"/": "https://kmupower.com/", "/about": "https://kmupower.com/ueber-uns", "/team": "https://kmupower.com/ueber-uns", "/agb": "https://kmupower.com/agb-impressum", "/blank-6": "https://kmupower.com/case-studies", "/book-online": "https://kmupower.com/kontakt", "/booking-calendar/powerapps-expertise": "https://kmupower.com/kontakt", "/booking-calendar/powerautomate-expertise-1": "https://kmupower.com/kontakt", "/booking-calendar/powerbi-expertise": "https://kmupower.com/kontakt", "/booking-calendar/powerplatform-governance-expertise": "https://kmupower.com/kontakt", "/cart-page": "https://kmupower.com/", "/category/all-products": "https://kmupower.com/", "/challenge-thanks": "https://kmupower.com/", "/challenges": "https://kmupower.com/", "/coming-soon-01": "https://kmupower.com/", "/contact": "https://kmupower.com/kontakt", "/faq": "https://kmupower.com/faq", "/gift-card": "https://kmupower.com/", "/loyalty": "https://kmupower.com/", "/megaeinfach": "https://kmupower.com/", "/newsletter": "https://kmupower.com/newsletter", "/plain": "https://kmupower.com/", "/en/plain": "https://www.powerplatformacademy.online/kurse/power-platform-admin", "/plans-pricing": "https://kmupower.com/preise", "/powerplatformadmin": "https://www.powerplatformacademy.online/kurse/power-platform-admin", "/service-page/become-a-powerplatform-admin-in-4-weeks": "https://www.powerplatformacademy.online/kurse/power-platform-admin", "/service-page/become-a-powerplatform-admin-in-4-weeks-1": "https://www.powerplatformacademy.online/kurse/power-platform-admin", "/service-page/werde-powerplatform-admin-in-4-wochen-1": "https://www.powerplatformacademy.online/kurse/power-platform-admin", "/service-page/werde-powerplatform-admin-in-4-wochen-2": "https://www.powerplatformacademy.online/kurse/power-platform-admin", "/service-page/powerapps-expertise": "https://kmupower.com/loesungen/power-platform-beratung", "/service-page/powerapps-expertise-1": "https://kmupower.com/loesungen/power-platform-beratung", "/service-page/powerautomate-expertise-1": "https://kmupower.com/loesungen/power-platform-beratung", "/service-page/powerbi-expertise": "https://kmupower.com/loesungen/power-platform-beratung", "/service-page/powerplatform-governance-expertise": "https://kmupower.com/loesungen/power-platform-beratung", "/services": "https://kmupower.com/loesungen", "/workshop": "https://www.powerplatformacademy.online/workshops", "/ueber-uns": "https://kmupower.com/ueber-uns", "/kontakt": "https://kmupower.com/kontakt", "/partner": "https://kmupower.com/it-partner", "/unabhaengige-beratung": "https://kmupower.com/loesungen/power-platform-beratung", "/rechtliches": "https://kmupower.com/agb-impressum", "/erfolgsgeschichten": "https://kmupower.com/case-studies", "/workshops": "https://www.powerplatformacademy.online/workshops", "/workshops/power-platform-admin-in-4-wochen": "https://www.powerplatformacademy.online/kurse/power-platform-admin", "/workshops/power-apps-profi-in-4-wochen": "https://www.powerplatformacademy.online/kurse/power-apps", "/workshops/power-automate-profi-in-4-wochen": "https://www.powerplatformacademy.online/kurse/power-automate"};
+  var rules = [["/service-page", "https://kmupower.com/loesungen"], ["/booking-calendar", "https://kmupower.com/kontakt"]];
+  var prefixes = ["/en"];
+  var fallback = "https://kmupower.com/";
+  var own = Object.prototype.hasOwnProperty;
+  var path = location.pathname;
+  try { path = decodeURIComponent(path); } catch (e) {}
+  if (path.normalize) { path = path.normalize("NFC"); }
+  path = path.toLowerCase().replace(/\/{2,}/g, "/").replace(/\/index\.html?$/, "").replace(/\.html?$/, "").replace(/\/+$/, "");
+  if (path === "") { path = "/"; }
+  function find(p) {
+    if (own.call(exact, p)) { return exact[p]; }
+    for (var i = 0; i < rules.length; i++) {
+      if (p === rules[i][0] || p.indexOf(rules[i][0] + "/") === 0) { return rules[i][1]; }
+    }
+    return null;
+  }
+  var target = find(path);
+  for (var j = 0; target === null && j < prefixes.length; j++) {
+    if (path === prefixes[j] || path.indexOf(prefixes[j] + "/") === 0) { target = find(path.slice(prefixes[j].length) || "/"); }
+  }
+  if (target === null) { target = fallback; }
+  var link = document.getElementById("go");
+  if (link) { link.href = target; link.textContent = target.replace(/^https?:\/\/(www\.)?/, "").replace(/\/.*$/, ""); }
+  document.title = "Weiterleitung auf " + (link ? link.textContent : "");
+  location.replace(target);
+})();
+</script>
+</body>
+</html>

@@ -17,38 +17,37 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
-      - name: Setup Node
-        uses: actions/setup-node@v5
-        with:
-          node-version: '20'
-          cache: 'npm'
-      
-      - name: Install dependencies
-        run: npm ci
-      
-      - name: Build
-        run: npm run build
-      
+
+      # Die Seite besteht nur noch aus den erzeugten Weiterleitungsseiten in docs/.
+      # Der Lauf erzeugt sie neu und bricht ab, wenn docs/ im Repo nicht dazu passt.
+      - name: Weiterleitungsseiten erzeugen und mit docs/ vergleichen
+        run: |
+          python3 tools/build_redirects.py
+          if [ -n "$(git status --porcelain -- docs)" ]; then
+            echo "docs/ ist nicht aktuell. Lokal 'python tools/build_redirects.py' ausfuehren und docs/ committen."
+            git status --short -- docs
+            exit 1
+          fi
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
-  
+          path: './docs'
+
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
-    
+
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
